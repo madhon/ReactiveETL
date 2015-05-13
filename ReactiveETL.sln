@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactiveETL", "ReactiveETL\ReactiveETL.csproj", "{49C75A85-661A-4D95-A991-C66D01C76F5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactiveETL.Tests", "ReactiveETL.Tests\ReactiveETL.Tests.csproj", "{A8578532-1E60-4FB9-BB8C-E7EEA7F0D2B7}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TestDatabase", "TestDatabase\TestDatabase.sqlproj", "{C758740D-DF36-46B3-90AE-FB4BF876DA16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49C75A85-661A-4D95-A991-C66D01C76F5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49C75A85-661A-4D95-A991-C66D01C76F5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49C75A85-661A-4D95-A991-C66D01C76F5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49C75A85-661A-4D95-A991-C66D01C76F5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8578532-1E60-4FB9-BB8C-E7EEA7F0D2B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8578532-1E60-4FB9-BB8C-E7EEA7F0D2B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8578532-1E60-4FB9-BB8C-E7EEA7F0D2B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8578532-1E60-4FB9-BB8C-E7EEA7F0D2B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C758740D-DF36-46B3-90AE-FB4BF876DA16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C758740D-DF36-46B3-90AE-FB4BF876DA16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C758740D-DF36-46B3-90AE-FB4BF876DA16}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C758740D-DF36-46B3-90AE-FB4BF876DA16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C758740D-DF36-46B3-90AE-FB4BF876DA16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C758740D-DF36-46B3-90AE-FB4BF876DA16}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = ReactiveETL.vsmdi
+	EndGlobalSection
+EndGlobal

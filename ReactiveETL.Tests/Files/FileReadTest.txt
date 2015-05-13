@@ -1,0 +1,3 @@
+﻿Id;Name;Blabla
+1;Some text;Some other text
+2;Second line text;Second blabla

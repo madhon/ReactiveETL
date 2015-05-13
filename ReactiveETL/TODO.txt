@@ -1,0 +1,5 @@
+﻿Cleaner le code
+Gerer une connection pour l'execution des commandes SQL (pour gérer les transactions)
+Cloner les row si on branch le flux ?
+Ajouter operations, en particulier fichiers
+Mettre sur Codeplex ou GoogleCode

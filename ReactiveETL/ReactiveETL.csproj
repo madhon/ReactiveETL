@@ -62,6 +62,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ensure.That, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ensure.That.5.0.0\lib\net45\Ensure.That.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FileHelpers, Version=3.1.5.0, Culture=neutral, PublicKeyToken=3e0c08d59cc3d657, processorArchitecture=MSIL">
       <HintPath>..\packages\FileHelpers.3.1.5\lib\net45\FileHelpers.dll</HintPath>
       <Private>True</Private>
@@ -104,7 +108,6 @@
     <Compile Include="Helpers\Helpers.cs" />
     <Compile Include="Helpers\JoinExtensions.cs" />
     <Compile Include="Helpers\OperationsExtensions.cs" />
-    <Compile Include="Guard.cs" />
     <Compile Include="Helpers\DbHelpers.cs" />
     <Compile Include="Helpers\RowJoinHelper.cs" />
     <Compile Include="Helpers\StringExtensions.cs" />

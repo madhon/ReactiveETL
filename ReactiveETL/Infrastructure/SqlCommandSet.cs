@@ -34,7 +34,9 @@ using System.Reflection;
 
 namespace ReactiveETL.Infrastructure
 {
-	/// <summary>
+    using EnsureThat;
+
+    /// <summary>
 	/// Expose the batch functionality in ADO.Net 2.0
 	/// Microsoft in its wisdom decided to make my life hard and mark it internal.
 	/// Through the use of Reflection and some delegates magic, I opened up the functionality.
@@ -61,7 +63,7 @@ namespace ReactiveETL.Infrastructure
 		{
 			Assembly sysData = Assembly.Load("System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089");
 			sqlCmdSetType = sysData.GetType("System.Data.SqlClient.SqlCommandSet");
-			Guard.Against(sqlCmdSetType == null, "Could not find SqlCommandSet!");
+            EnsureArg.IsNotNull(sqlCmdSetType);
 		}
 
 		/// <summary>
@@ -117,23 +119,14 @@ namespace ReactiveETL.Infrastructure
 		/// <summary>
 		/// Return the batch command to be executed
 		/// </summary>
-		public SqlCommand BatchCommand
-		{
-			get
-			{
-				return commandGetter();
-			}
-		}
-		
-		/// <summary>
+		public SqlCommand BatchCommand => commandGetter();
+
+        /// <summary>
 		/// The number of commands batched in this instance
 		/// </summary>
-		public int CountOfCommands
-		{
-			get { return countOfCommands; }
-		}
+		public int CountOfCommands => countOfCommands;
 
-		/// <summary>
+        /// <summary>
 		/// Executes the batch
 		/// </summary>
 		/// <returns>
@@ -141,9 +134,9 @@ namespace ReactiveETL.Infrastructure
 		/// </returns>
 		public int ExecuteNonQuery()
 		{
-			Guard.Against<ArgumentException>(Connection == null,
-			                                 "Connection was not set! You must set the connection property before calling ExecuteNonQuery()");
-			if(CountOfCommands==0)
+            EnsureArg.IsNotNull(Connection);
+
+            if (CountOfCommands==0)
 				return 0;
 			return doExecuteNonQuery();
 		}
@@ -170,12 +163,9 @@ namespace ReactiveETL.Infrastructure
 		///Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
 		///</summary>
 		///<filterpriority>2</filterpriority>
-		public void Dispose()
-		{
-			doDispose();
-		}
+		public void Dispose() => doDispose();
 
-		#region Delegate Definations
+        #region Delegate Definations
 		private delegate void PropSetter<T>(T item);
 		private delegate T PropGetter<T>();
 		private delegate void AppendCommand(SqlCommand command);

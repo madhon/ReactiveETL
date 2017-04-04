@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>ReactiveETL</id>
+        <version>1.0.0</version>
+        <title>ReactiveETL</title>
+        <authors>Madhon</authors>
+        <projectUrl>https://github.com/madhon/ReactiveETL</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Reactive ETL is a rewrite of Rhino ETL using the reactive extensions for .Net.</description>
+        <tags>Rx Reactive</tags>
+        <dependencies>
+            <dependency id="Ensure.That" version="5.0.0" />
+            <dependency id="FileHelpers" version="3.1.5" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Release\ReactiveETL.dll" target="lib\net45\ReactiveETL.dll" />
+    </files>
+</package>

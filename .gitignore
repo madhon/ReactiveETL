@@ -226,3 +226,4 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
+/TestDatabase/TestDatabase.jfm

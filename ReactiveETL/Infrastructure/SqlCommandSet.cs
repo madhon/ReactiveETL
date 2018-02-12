@@ -26,15 +26,11 @@
 // THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endregion
 
-
-using System;
-using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Reflection;
-
 namespace ReactiveETL.Infrastructure
 {
-    using EnsureThat;
+    using System;
+    using System.Data.SqlClient;
+    using System.Reflection;
 
     /// <summary>
 	/// Expose the batch functionality in ADO.Net 2.0
@@ -63,7 +59,6 @@ namespace ReactiveETL.Infrastructure
 		{
 			Assembly sysData = Assembly.Load("System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089");
 			sqlCmdSetType = sysData.GetType("System.Data.SqlClient.SqlCommandSet");
-            EnsureArg.IsNotNull(sqlCmdSetType);
 		}
 
 		/// <summary>
@@ -134,10 +129,11 @@ namespace ReactiveETL.Infrastructure
 		/// </returns>
 		public int ExecuteNonQuery()
 		{
-            EnsureArg.IsNotNull(Connection);
+            if (CountOfCommands == 0)
+            {
+                return 0;
+            }
 
-            if (CountOfCommands==0)
-				return 0;
 			return doExecuteNonQuery();
 		}
 
@@ -165,9 +161,9 @@ namespace ReactiveETL.Infrastructure
 		///<filterpriority>2</filterpriority>
 		public void Dispose() => doDispose();
 
-        #region Delegate Definations
-		private delegate void PropSetter<T>(T item);
-		private delegate T PropGetter<T>();
+        #region Delegate Definitions
+		private delegate void PropSetter<in T>(T item);
+		private delegate T PropGetter<out T>();
 		private delegate void AppendCommand(SqlCommand command);
 		private delegate int ExecuteNonQueryCommand();
 		private delegate void DisposeCommand();

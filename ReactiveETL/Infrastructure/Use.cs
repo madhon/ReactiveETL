@@ -61,7 +61,7 @@ namespace ReactiveETL.Infrastructure
 		public static T Transaction<T>(string connectionStringName, Func<T> actionToExecute)
 		{
 			T result = default(T);
-			Transaction(connectionStringName, delegate(IDbCommand command) { result = actionToExecute(command); });
+			Transaction(connectionStringName, command => result = actionToExecute(command));
 			return result;
 		}
 

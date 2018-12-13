@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using Shouldly;
-
-namespace ReactiveETL.Tests.Joins
+﻿namespace ReactiveETL.Tests.Joins
 {
+    using System.Collections.Generic;
+    using Shouldly;
+    using Xunit;
+
     public class JoinFixture : BaseJoinFixture
     {
         [Fact]

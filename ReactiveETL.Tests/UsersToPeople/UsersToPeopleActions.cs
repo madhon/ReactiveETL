@@ -7,13 +7,7 @@ namespace ReactiveETL.Tests
 {
     class UsersToPeopleActions
     {
-        public static string SelectAllUsers
-        {
-            get
-            {
-                return "SELECT * FROM Users";
-            }
-        }
+        public static string SelectAllUsers => "SELECT * FROM Users";
 
         public static Row SplitUserName(Row row)
         {

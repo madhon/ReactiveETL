@@ -1,9 +1,10 @@
-﻿using System.IO;
-using FileHelpers;
-using Shouldly;
-
-namespace ReactiveETL.Tests.Files
+﻿namespace ReactiveETL.Tests.Files
 {
+    using System.IO;
+    using FileHelpers;
+    using Shouldly;
+    using Xunit;
+
     /// <summary>
     /// Summary description for FileTest
     /// </summary>

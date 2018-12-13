@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using ReactiveETL.Exceptions;
-using Shouldly;
-
-namespace ReactiveETL.Tests
+﻿namespace ReactiveETL.Tests
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using Exceptions;
+    using Shouldly;
+    using Xunit;
+
     public class ErrorsFixture
     {        
         public IEnumerable<User> ListUsers(int numusers)

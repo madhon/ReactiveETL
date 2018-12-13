@@ -1,9 +1,10 @@
-﻿using System;
-using System.Data;
-using Shouldly;
-
-namespace ReactiveETL.Tests.AdventureWorks
+﻿namespace ReactiveETL.Tests.AdventureWorks
 {
+    using System;
+    using System.Data;
+    using Shouldly;
+    using Xunit;
+
     /// <summary>
     /// Summary description for UnitTest1
     /// </summary>
@@ -55,21 +56,12 @@ namespace ReactiveETL.Tests.AdventureWorks
             productCategory.Result.Count.ShouldBeGreaterThan(0);
         }
 
-        private bool HasCategory(Row row)
-        {
-            return row["cat_id"] != null && !string.IsNullOrEmpty(row["cat_id"].ToString());
-        }
+        private bool HasCategory(Row row) => row["cat_id"] != null && !string.IsNullOrEmpty(row["cat_id"].ToString());
 
-        private string CleanCatalog
-        {
-            get
-            {
-                return "DELETE FROM ProductToCategories; " +
-                "DELETE FROM Products; " +
-                "DELETE FROM ProductCategories; " +
-                "DELETE FROM ProductFamillies; ";    
-            }
-        }
+        private string CleanCatalog => "DELETE FROM ProductToCategories; " +
+                                       "DELETE FROM Products; " +
+                                       "DELETE FROM ProductCategories; " +
+                                       "DELETE FROM ProductFamillies; ";
 
         private void InsertFamilly(IDbCommand cmd, Row row)
         {

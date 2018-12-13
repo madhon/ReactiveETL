@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Shouldly;
-
-namespace ReactiveETL.Tests.Files
+﻿namespace ReactiveETL.Tests.Files
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using Shouldly;
+    using Xunit;
+
     public class UsingDALFixture
     {
         private const string expected =

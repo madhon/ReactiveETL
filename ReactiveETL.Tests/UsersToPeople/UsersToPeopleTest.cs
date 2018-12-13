@@ -1,8 +1,9 @@
-﻿using ReactiveETL.Infrastructure;
-using Shouldly;
-
-namespace ReactiveETL.Tests
+﻿namespace ReactiveETL.Tests
 {
+    using Infrastructure;
+    using Shouldly;
+    using Xunit;
+
     public class UsersToPeopleFixture : BaseUserToPeopleTest
     {
         [Fact]

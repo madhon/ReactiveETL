@@ -10,9 +10,9 @@ namespace ReactiveETL.Operations
     /// </summary>
     public class GroupByOperation : AbstractOperation
     {
-        private string[] _columns;
-
-        private List<Row> groups = new List<Row>();
+        private readonly string[] _columns;
+        private readonly Action<Row, Row> _aggregate;
+        private readonly List<Row> groups = new List<Row>();
 
         /// <summary>
         /// Constructor
@@ -20,7 +20,18 @@ namespace ReactiveETL.Operations
         /// <param name="columns"></param>
         public GroupByOperation(params string[] columns)
         {
-            _columns = columns;
+            this._columns = columns;
+            this._aggregate = null;
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="columns"></param>
+        public GroupByOperation(string[] columns, Action<Row, Row> aggregate = null)
+        {
+            this._columns = columns;
+            this._aggregate = aggregate;
         }
 
         /// <summary>
@@ -32,9 +43,12 @@ namespace ReactiveETL.Operations
             var group = groups.Find(r => this.Match(value, r));
             if (group == null)
             {
-                group = GetNewGroup(value);                
+                group = GetNewGroup(value);
             }
-
+            if (_aggregate != null)
+            {
+                _aggregate(group, value);
+            }
             var lst = (List<Row>)group[Constants.GroupListName];
             lst.Add(value);
         }
@@ -45,7 +59,7 @@ namespace ReactiveETL.Operations
             res[Constants.GroupListName] = new List<Row>();
             foreach (var column in _columns)
             {
-                res[column] = currentRow[column];                
+                res[column] = currentRow[column];
             }
             groups.Add(res);
             return res;
@@ -68,7 +82,7 @@ namespace ReactiveETL.Operations
         {
             foreach (var eltgroup in groups)
             {
-                base.Dispatch(eltgroup);                
+                base.Dispatch(eltgroup);
             }
             base.OnCompleted();
         }

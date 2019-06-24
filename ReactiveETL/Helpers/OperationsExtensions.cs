@@ -201,6 +201,13 @@ namespace ReactiveETL
             return op;
         }
 
+        public static GroupByOperation GroupBy(this IObservableOperation observed, string[] columns, Action<Row, Row> aggregate = null)
+        {
+            var op = new GroupByOperation(columns, aggregate);
+            observed.Subscribe(op);
+            return op;
+        }
+
         /// <summary>
         /// Dispatch the grouped elements (trigger for every grouped rows)
         /// </summary>

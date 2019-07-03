@@ -153,5 +153,28 @@ namespace ReactiveETL
 
             return observed.DbCommand(activator);
         }
+
+        /// <summary>
+        /// upsert into mongodb
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="observed"></param>
+        /// <param name="database"></param>
+        /// <param name="collectionName"></param>
+        /// <param name="filter"></param>
+        /// <param name="update"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static MongoDbOperation<T> MongoDbUpsert<T>(this IObservableOperation observed,
+            MongoDB.Driver.IMongoDatabase database,
+            string collectionName,
+            Func<Row, MongoDB.Driver.FilterDefinition<T>> filter,
+            Func<Row, MongoDB.Driver.UpdateDefinition<T>> update,
+            MongoDB.Driver.UpdateOptions options = null)
+        {
+            var mongoDbOperation = new MongoDbOperation<T>(new CommandActivator(), database, collectionName, filter, update, options);
+            observed.Subscribe(mongoDbOperation);
+            return mongoDbOperation;
+        }
     }
 }

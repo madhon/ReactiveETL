@@ -155,24 +155,24 @@ namespace ReactiveETL
         }
 
         /// <summary>
-        /// upsert into mongodb
+        /// upsert into mongodb。處理寫入mongodb。
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="observed"></param>
-        /// <param name="database"></param>
-        /// <param name="collectionName"></param>
-        /// <param name="filter"></param>
-        /// <param name="update"></param>
-        /// <param name="options"></param>
+        /// <typeparam name="T">mongodb collection 對應到C# class</typeparam>
+        /// <param name="observed">observed operation</param>
+        /// <param name="database">mongodb IMongoDatabase</param>
+        /// <param name="collectionName">collection name</param>
+        /// <param name="filter">呼叫方要upsert的過濾條件</param>
+        /// <param name="update">每次provider push出來是Row類型，透過委派由呼叫方完成寫入update definition</param>
+        /// <param name="options">mongodb update option</param>
         /// <returns></returns>
-        public static MongoDbOperation<T> MongoDbUpsert<T>(this IObservableOperation observed,
+        public static MongoDbUpdateOperation<T> MongoDbUpsert<T>(this IObservableOperation observed,
             MongoDB.Driver.IMongoDatabase database,
             string collectionName,
             Func<Row, MongoDB.Driver.FilterDefinition<T>> filter,
             Func<Row, MongoDB.Driver.UpdateDefinition<T>> update,
             MongoDB.Driver.UpdateOptions options = null)
         {
-            var mongoDbOperation = new MongoDbOperation<T>(new CommandActivator(), database, collectionName, filter, update, options);
+            var mongoDbOperation = new MongoDbUpdateOperation<T>(new CommandActivator(), database, collectionName, filter, update, options);
             observed.Subscribe(mongoDbOperation);
             return mongoDbOperation;
         }

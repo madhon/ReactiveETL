@@ -8,10 +8,10 @@ using ReactiveETL.Logging;
 namespace ReactiveETL.Operations.Database
 {
     /// <summary>
-    /// opearation of mongodb
+    /// update of mongodb
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class MongoDbOperation<T> : AbstractOperation
+    public class MongoDbUpdateOperation<T> : AbstractOperation
     {
         private readonly ILog log = LogProvider.GetCurrentClassLogger();
 
@@ -23,7 +23,7 @@ namespace ReactiveETL.Operations.Database
         private Func<Row, MongoDB.Driver.UpdateDefinition<T>> update;
         private MongoDB.Driver.UpdateOptions options;
 
-        public MongoDbOperation(CommandActivator activator,
+        public MongoDbUpdateOperation(CommandActivator activator,
             IMongoDatabase database,
             string collectionName,
             Func<Row, MongoDB.Driver.FilterDefinition<T>> filter,
@@ -63,13 +63,13 @@ namespace ReactiveETL.Operations.Database
                 }
                 catch (MongoCommandException duplicateKeyException)
                 {
-                    log.Error($"Code:{duplicateKeyException.Code}, CodeName:{duplicateKeyException.CodeName}", duplicateKeyException);
-                    session.AbortTransaction();
+                    log.Error(duplicateKeyException, $"Code:{duplicateKeyException.Code}, CodeName:{duplicateKeyException.CodeName}, ErrorMessage:{duplicateKeyException.ErrorMessage}, Message:{duplicateKeyException.Message}, Data:{duplicateKeyException.Data}, {value}");
+                    if (session.IsInTransaction) { session.AbortTransaction(); }
                 }
                 catch (System.Exception exc)
                 {
-                    log.Error(exc, exc.Message);
-                    session.AbortTransaction();
+                    log.Error(exc, $"Message:{exc.Message} {value}");
+                    if (session.IsInTransaction) { session.AbortTransaction(); }
                 }
             }
 

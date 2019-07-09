@@ -5,7 +5,8 @@
     <Company>Madhon</Company>
     <Copyright>Copyright © Madhon 2016-2018</Copyright>
     <Authors>Madhon</Authors>
-    <projectUrl>https://github.com/madhon/ReactiveETL</projectUrl>    
+    <projectUrl>https://github.com/madhon/ReactiveETL</projectUrl>
+    <LangVersion>7.3</LangVersion>    
   </PropertyGroup>
 
   <ItemGroup>

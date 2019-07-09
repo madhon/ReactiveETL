@@ -26,10 +26,7 @@ namespace ReactiveETL.Files
         /// Initializes a new instance of the <see cref="FluentFile"/> class.
         /// </summary>
         /// <param name="type">The type.</param>
-        public FluentFile(Type type)
-        {
-            engine = new FileHelperAsyncEngine(type);
-        }
+        public FluentFile(Type type) => engine = new FileHelperAsyncEngine(type);
 
         /// <summary>
         /// Specify which file to start reading from
@@ -104,11 +101,7 @@ namespace ReactiveETL.Files
         /// Gets or sets the options.
         /// </summary>
         /// <value>The options.</value>
-        public RecordOptions Options
-        {
-            get { return engine.Options; }
-            //set { engine.Options = value; }
-        }
+        public RecordOptions Options => engine.Options;
 
         /// <summary>
         /// Gets or sets the footer text.
@@ -116,8 +109,8 @@ namespace ReactiveETL.Files
         /// <value>The footer text.</value>
         public string FooterText
         {
-            get { return engine.FooterText; }
-            set { engine.FooterText = value; }
+            get => engine.FooterText;
+            set => engine.FooterText = value;
         }
 
         /// <summary>
@@ -126,8 +119,8 @@ namespace ReactiveETL.Files
         /// <value>The header text.</value>
         public string HeaderText
         {
-            get { return engine.HeaderText; }
-            set { engine.HeaderText = value; }
+            get => engine.HeaderText;
+            set => engine.HeaderText = value;
         }
 
         /// <summary>
@@ -136,8 +129,8 @@ namespace ReactiveETL.Files
         /// <value>The encoding.</value>
         public Encoding Encoding
         {
-            get { return engine.Encoding; }
-            set { engine.Encoding = value; }
+            get => engine.Encoding;
+            set => engine.Encoding = value;
         }
     }
 }

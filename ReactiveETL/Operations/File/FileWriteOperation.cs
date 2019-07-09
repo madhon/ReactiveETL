@@ -13,10 +13,7 @@ namespace ReactiveETL.Operations.File
         /// File Write constructor
         /// </summary>
         /// <param name="activator">file write parameters</param>
-        public FileWriteOperation(FileWriteActivator<T> activator)
-        {
-            _activator = activator;
-        }
+        public FileWriteOperation(FileWriteActivator<T> activator) => _activator = activator;
 
         /// <summary>
         /// Method called by OnNext > Dispatch to process the notified value. This method just return the value and could be overriden in subclasses

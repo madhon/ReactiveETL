@@ -71,7 +71,7 @@ namespace ReactiveETL
         /// <returns></returns>
         public Row Clone()
         {
-            Row row = new Row(this);
+            var row = new Row(this);
             return row;
         }
 
@@ -149,8 +149,11 @@ namespace ReactiveETL
         public static Row FromObject(object obj)
         {
             if (obj == null)
-                throw new ArgumentNullException("obj");
-            Row row = new Row();
+            {
+                throw new ArgumentNullException(nameof(obj));
+            }
+
+            var row = new Row();
             foreach (PropertyInfo property in GetProperties(obj))
             {
                 row[property.Name] = property.GetValue(obj, new object[0]);
@@ -164,8 +167,7 @@ namespace ReactiveETL
 
         private static List<PropertyInfo> GetProperties(object obj)
         {
-            List<PropertyInfo> properties;
-            if (propertiesCache.TryGetValue(obj.GetType(), out properties))
+            if (propertiesCache.TryGetValue(obj.GetType(), out var properties))
                 return properties;
 
             properties = new List<PropertyInfo>();
@@ -181,8 +183,7 @@ namespace ReactiveETL
 
         private static List<FieldInfo> GetFields(object obj)
         {
-            List<FieldInfo> fields;
-            if (fieldsCache.TryGetValue(obj.GetType(), out fields))
+            if (fieldsCache.TryGetValue(obj.GetType(), out var fields))
                 return fields;
 
             fields = new List<FieldInfo>();
@@ -201,7 +202,7 @@ namespace ReactiveETL
         /// <returns></returns>
         public static Row FromReader(IDataReader reader)
         {
-            Row row = new Row();
+            var row = new Row();
             row.Add(reader);
             return row;
         }

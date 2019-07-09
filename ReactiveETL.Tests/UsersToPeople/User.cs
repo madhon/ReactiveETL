@@ -2,10 +2,6 @@ namespace ReactiveETL.Tests
 {
     public class User
     {
-        private string email;
-        private int id;
-        private string name;
-
         public User()
         {
 
@@ -13,27 +9,15 @@ namespace ReactiveETL.Tests
 
         public User(int id, string name, string email)
         {
-            this.id = id;
-            this.name = name;
-            this.email = email;
+            this.Id = id;
+            this.Name = name;
+            this.Email = email;
         }
 
-        public string Email
-        {
-            get { return email; }
-            set { email = value; }
-        }
+        public string Email { get; set; }
 
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
+        public int Id { get; set; }
 
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+        public string Name { get; set; }
     }
 }

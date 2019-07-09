@@ -18,10 +18,7 @@ namespace ReactiveETL.Operations.Database
         /// Constructor of input command operation
         /// </summary>
         /// <param name="activator"></param>
-        public InputCommandOperation(CommandActivator activator)
-        {
-            _activator = activator;    
-        }
+        public InputCommandOperation(CommandActivator activator) => _activator = activator;
 
         /// <summary>
         /// Notifies the observer of a new value in the sequence. It's best to override Dispatch or TreatRow than this method because this method contains pipelining logic.

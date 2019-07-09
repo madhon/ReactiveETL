@@ -40,10 +40,8 @@ namespace ReactiveETL.Exceptions
         /// </summary>
         /// <param name="result">The operation result.</param>
         public EtlResultException(EtlResult result)
-            : base()
-        {
-            EtlResult = result;                      
-        }
+            : base() =>
+            EtlResult = result;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ReactiveETLException"/> class.
@@ -51,10 +49,7 @@ namespace ReactiveETL.Exceptions
         /// <param name="result">The operation result.</param>
         /// <param name="message">The message.</param>
         /// <param name="inner">The inner.</param>
-        public EtlResultException(EtlResult result, string message, Exception inner) : base(message, inner)
-        {
-            EtlResult = result;
-        }
+        public EtlResultException(EtlResult result, string message, Exception inner) : base(message, inner) => EtlResult = result;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ReactiveETLException"/> class.
@@ -67,10 +62,8 @@ namespace ReactiveETL.Exceptions
         protected EtlResultException(
             EtlResult result, SerializationInfo info,
             StreamingContext context)
-            : base(info, context)
-        {
+            : base(info, context) =>
             EtlResult = result;
-        }
 
         /// <summary>
         /// Creates and returns a string representation of the current exception.
@@ -81,7 +74,7 @@ namespace ReactiveETL.Exceptions
         /// <filterpriority>1</filterpriority><PermissionSet><IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" PathDiscovery="*AllFiles*"/></PermissionSet>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.AppendLine("Operation result has error(s) :");
             foreach (var exception in EtlResult.Exceptions)
             {

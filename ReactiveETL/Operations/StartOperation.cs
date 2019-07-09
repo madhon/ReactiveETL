@@ -10,10 +10,7 @@ namespace ReactiveETL.Operations
         /// <summary>
         /// Constructor of start operation
         /// </summary>
-        public StartOperation()
-        {
-            Result = new EtlResult();
-        }
+        public StartOperation() => Result = new EtlResult();
 
         /// <summary>
         /// Result of the pipeline's process

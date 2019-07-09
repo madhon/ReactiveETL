@@ -101,7 +101,7 @@ namespace ReactiveETL
         /// <returns>command operation</returns>
         public static InputCommandOperation Command(CommandActivator activator)
         {
-            InputCommandOperation cmd = new InputCommandOperation(activator);
+            var cmd = new InputCommandOperation(activator);
             return cmd;
         }
 
@@ -116,7 +116,7 @@ namespace ReactiveETL
         /// <returns>Command operation</returns>
         public static InputCommandOperation Command(string connStr, string CommandText, bool isQuery, bool failOnError, Action<IDbCommand, Row> Prepare)
         {
-            CommandActivator activator = new CommandActivator();
+            var activator = new CommandActivator();
             activator.ConnStringName = connStr;
             activator.CommandText = CommandText;
             activator.Prepare = Prepare;
@@ -137,7 +137,7 @@ namespace ReactiveETL
         /// <returns>Command operation</returns>
         public static InputCommandOperation Command(IDbConnection connection, string CommandText, bool isQuery, bool failOnError, Action<IDbCommand, Row> Prepare)
         {
-            CommandActivator activator = new CommandActivator();
+            var activator = new CommandActivator();
             activator.Connection = connection;
             activator.CommandText = CommandText;
             activator.Prepare = Prepare;

@@ -15,19 +15,13 @@ namespace ReactiveETL.Operations
         /// Transform operation constructor
         /// </summary>
         /// <param name="transformact">callback method for transforming the <see cref="Row"/></param>
-        public TransformOperation(Func<Row, Row> transformact)
-        {
-            _transformact = transformact;
-        }
+        public TransformOperation(Func<Row, Row> transformact) => _transformact = transformact;
 
         /// <summary>
         /// Transform operation constructor
         /// </summary>
         /// <param name="transformact">callback method for transforming the <see cref="Row"/></param>
-        public TransformOperation(Func<Row, IEnumerable<Row>> transformact)
-        {
-            _transformManyAct = transformact;
-        }
+        public TransformOperation(Func<Row, IEnumerable<Row>> transformact) => _transformManyAct = transformact;
 
         /// <summary>
         /// Method called by OnNext to dispatch the new value to the observers of the operation

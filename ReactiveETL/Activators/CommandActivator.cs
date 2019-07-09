@@ -24,21 +24,10 @@ namespace ReactiveETL.Activators
         /// </summary>
         public bool UseTransaction { get; set; }
 
-        private bool failOnError = true;
         /// <summary>
         /// Indicate if operation fail on error (default is true)
         /// </summary>
-        public bool FailOnError
-        {
-            get
-            {
-                return this.failOnError;
-            }
-            set
-            {
-                this.failOnError = value;
-            }
-        }
+        public bool FailOnError { get; set; } = true;
 
         /// <summary>
         /// Indicate if the command is a query

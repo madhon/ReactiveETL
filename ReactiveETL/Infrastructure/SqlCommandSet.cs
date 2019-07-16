@@ -142,9 +142,9 @@ namespace ReactiveETL.Infrastructure
 		///</summary>
 		public SqlConnection Connection
 		{
-			get { return connectionGetter(); }
-			set { connectionSetter(value); }
-		}
+			get => connectionGetter();
+            set => connectionSetter(value);
+        }
 
 
 		/// <summary>
@@ -152,8 +152,8 @@ namespace ReactiveETL.Infrastructure
 		/// </summary>
 		public SqlTransaction Transaction
 		{
-			set { transactionSetter(value); }
-		}
+			set => transactionSetter(value);
+        }
 
 		///<summary>
 		///Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.

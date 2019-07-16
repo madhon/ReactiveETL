@@ -34,24 +34,12 @@ namespace ReactiveETL
         /// <summary>
         /// Elements recorded by the operation
         /// </summary>
-        public int CountExceptions
-        {
-            get
-            {
-                return _exceptions.Count;
-            }
-        }
+        public int CountExceptions => _exceptions.Count;
 
         /// <summary>
         /// Exceptions recorded by the operation
         /// </summary>
-        public IEnumerable<Exception> Exceptions
-        {
-            get
-            {
-                return _exceptions;
-            }
-        }
+        public IEnumerable<Exception> Exceptions => _exceptions;
 
         /// <summary>
         /// Duration of the process

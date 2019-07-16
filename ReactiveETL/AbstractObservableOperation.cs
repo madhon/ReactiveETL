@@ -46,13 +46,7 @@ namespace ReactiveETL
         /// <summary>
         /// List of observers of this operation
         /// </summary>
-        public List<IObserver<Row>> Observers
-        {
-            get
-            {
-                return _observers;
-            }
-        }
+        public List<IObserver<Row>> Observers => _observers;
 
         #region Observable
 

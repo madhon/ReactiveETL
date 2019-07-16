@@ -17,10 +17,7 @@ namespace ReactiveETL.Operations
         /// Join operation constructor
         /// </summary>
         /// <param name="activator">Join operation activator</param>
-        public JoinOperation(JoinActivator<T> activator)
-        {
-            _activator = activator;
-        }
+        public JoinOperation(JoinActivator<T> activator) => _activator = activator;
 
         /// <summary>
         /// Method called by OnNext > Dispatch to process the notified value. This method just return the value and could be overriden in subclasses
@@ -52,7 +49,7 @@ namespace ReactiveETL.Operations
                 if (matchedRightElt.ContainsKey(elt))
                     continue;
 
-                Row emptyRow = new Row();
+                var emptyRow = new Row();
                 if (_activator.CheckMatch(emptyRow, elt))
                 {
                     var res = _activator.ProcessRow(emptyRow, elt);

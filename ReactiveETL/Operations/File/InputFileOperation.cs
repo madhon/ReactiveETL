@@ -22,28 +22,19 @@ namespace ReactiveETL.Operations.File
         /// File read constructor
         /// </summary>
         /// <param name="filename">full path to the file</param>
-        public InputFileOperation(string filename)
-        {
-            _filename = filename;
-        }
+        public InputFileOperation(string filename) => _filename = filename;
 
         /// <summary>
         /// File read constructor
         /// </summary>
         /// <param name="strm">Stream to the file</param>
-        public InputFileOperation(Stream strm)
-        {
-            _strm = strm;
-        }
+        public InputFileOperation(Stream strm) => _strm = strm;
 
         /// <summary>
         /// File read constructor
         /// </summary>
         /// <param name="strmReader">Stream to the file</param>
-        public InputFileOperation(StreamReader strmReader)
-        {
-            _strmReader = strmReader;
-        }
+        public InputFileOperation(StreamReader strmReader) => _strmReader = strmReader;
 
         /// <summary>
         /// Notifies the observer of a new value in the sequence. It's best to override Dispatch or TreatRow than this method because this method contains pipelining logic.
@@ -58,7 +49,7 @@ namespace ReactiveETL.Operations.File
 
                 if (_strm != null)
                 {
-                    using (StreamReader reader = new StreamReader(_strm))
+                    using (var reader = new StreamReader(_strm))
                     {
                         fList = FluentFile.For<T>().From(reader).GetEnumerator();                        
                     }

@@ -18,10 +18,7 @@ namespace ReactiveETL
         /// <param name="observed">observed operation</param>
         /// <param name="filename">full path to the file</param>
         /// <returns>file write operation</returns>
-        public static FileWriteOperation<T> WriteFile<T>(this IObservableOperation observed, string filename)
-        {
-            return observed.WriteFile<T>(filename, null);
-        }
+        public static FileWriteOperation<T> WriteFile<T>(this IObservableOperation observed, string filename) => observed.WriteFile<T>(filename, null);
 
         /// <summary>
         /// Write the result to a file
@@ -33,8 +30,8 @@ namespace ReactiveETL
         /// <returns>file write operation</returns>
         public static FileWriteOperation<T> WriteFile<T>(this IObservableOperation observed, string filename, Action<FluentFile> prepare)
         {
-            FileWriteActivator<T> activator = new FileWriteActivator<T>() { FileName = filename, PrepareFluentFile = prepare };
-            FileWriteOperation<T> resoperation = new FileWriteOperation<T>(activator);
+            var activator = new FileWriteActivator<T>() { FileName = filename, PrepareFluentFile = prepare };
+            var resoperation = new FileWriteOperation<T>(activator);
             observed.Subscribe(resoperation);
             return resoperation;
         }
@@ -46,10 +43,7 @@ namespace ReactiveETL
         /// <param name="observed">observed operation</param>
         /// <param name="strm">stream to the file</param>
         /// <returns>file write operation</returns>
-        public static FileWriteOperation<T> WriteFile<T>(this IObservableOperation observed, Stream strm)
-        {
-            return observed.WriteFile<T>(strm, null);
-        }
+        public static FileWriteOperation<T> WriteFile<T>(this IObservableOperation observed, Stream strm) => observed.WriteFile<T>(strm, null);
 
         /// <summary>
         /// Write the result to a stream
@@ -61,8 +55,8 @@ namespace ReactiveETL
         /// <returns>file write operation</returns>
         public static FileWriteOperation<T> WriteFile<T>(this IObservableOperation observed, Stream strm, Action<FluentFile> prepare)
         {
-            FileWriteActivator<T> activator = new FileWriteActivator<T>() { Stream = strm, PrepareFluentFile = prepare };
-            FileWriteOperation<T> resoperation = new FileWriteOperation<T>(activator);
+            var activator = new FileWriteActivator<T>() { Stream = strm, PrepareFluentFile = prepare };
+            var resoperation = new FileWriteOperation<T>(activator);
             observed.Subscribe(resoperation);
             return resoperation;
         }
@@ -74,10 +68,7 @@ namespace ReactiveETL
         /// <param name="observed">observed operation</param>
         /// <param name="writer">stream to the file</param>
         /// <returns>file write operation</returns>
-        public static FileWriteOperation<T> WriteFile<T>(this IObservableOperation observed, TextWriter writer)
-        {
-            return observed.WriteFile<T>(writer, null);
-        }
+        public static FileWriteOperation<T> WriteFile<T>(this IObservableOperation observed, TextWriter writer) => observed.WriteFile<T>(writer, null);
 
         /// <summary>
         /// Write the result to a stream
@@ -89,8 +80,8 @@ namespace ReactiveETL
         /// <returns>file write operation</returns>
         public static FileWriteOperation<T> WriteFile<T>(this IObservableOperation observed, TextWriter writer, Action<FluentFile> prepare)
         {
-            FileWriteActivator<T> activator = new FileWriteActivator<T>() { Writer = writer, PrepareFluentFile = prepare };
-            FileWriteOperation<T> resoperation = new FileWriteOperation<T>(activator);
+            var activator = new FileWriteActivator<T>() { Writer = writer, PrepareFluentFile = prepare };
+            var resoperation = new FileWriteOperation<T>(activator);
             observed.Subscribe(resoperation);
             return resoperation;
         }

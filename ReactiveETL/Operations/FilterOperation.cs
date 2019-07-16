@@ -13,10 +13,7 @@ namespace ReactiveETL.Operations
         /// Filter operation constructor
         /// </summary>
         /// <param name="predicate">predicate applyied to filter data</param>
-        public FilterOperation(Predicate<Row> predicate)
-        {
-            _predicate = predicate;
-        }
+        public FilterOperation(Predicate<Row> predicate) => _predicate = predicate;
 
 
         /// <summary>

@@ -93,7 +93,7 @@
 
         private Row MergeRows(Row leftRow, Row rightRow)
         {
-            Row row = new Row();
+            var row = new Row();
             row.Copy(leftRow);
             if (rightRow != null)
                 row["person_id"] = rightRow["id"];

@@ -18,24 +18,12 @@ namespace ReactiveETL
         /// <summary>
         /// Elements recorded by the operation
         /// </summary>
-        public IEnumerable<Row> Data
-        {
-            get
-            {
-                return _data;
-            }
-        }
+        public IEnumerable<Row> Data => _data;
 
         /// <summary>
         /// Elements recorded by the operation
         /// </summary>
-        public int Count
-        {
-            get
-            {
-                return _data.Count;
-            }
-        }        
+        public int Count => _data.Count;
 
         #region IEnumerable<Row> Members
 

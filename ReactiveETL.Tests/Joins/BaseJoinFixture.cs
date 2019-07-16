@@ -22,7 +22,7 @@ namespace ReactiveETL.Tests.Joins
 
         protected void AddPerson(int id, string email)
         {
-            Row row = new Row();
+            var row = new Row();
             row["id"] = id;
             row["email"] = email;
             right.Add(row);
@@ -30,7 +30,7 @@ namespace ReactiveETL.Tests.Joins
 
         protected void AddUser(string name, string email)
         {
-            Row row = new Row();
+            var row = new Row();
             row["name"] = name;
             row["email"] = email;
             left.Add(row);

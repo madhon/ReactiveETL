@@ -5,6 +5,8 @@ using Shouldly;
 
 namespace ReactiveETL.Tests
 {
+    using System.Collections.Generic;
+
     class UsersToPeopleActions
     {
         public static string SelectAllUsers => "SELECT * FROM Users";
@@ -35,7 +37,7 @@ namespace ReactiveETL.Tests
             
             System.Collections.Generic.List<string[]> names = Use.Transaction<System.Collections.Generic.List<string[]>>("test", delegate(IDbCommand cmd)
             {
-                System.Collections.Generic.List<string[]> tuples = new System.Collections.Generic.List<string[]>();
+                var tuples = new List<string[]>();
                 cmd.CommandText = "SELECT firstname, lastname from people order by userid";
                 using (IDataReader reader = cmd.ExecuteReader())
                 {

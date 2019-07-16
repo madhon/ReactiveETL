@@ -7,12 +7,11 @@ namespace ReactiveETL.Tests
 
     public class BaseUserToPeopleTest
     {
-        public BaseUserToPeopleTest()
-        {
+        public BaseUserToPeopleTest() =>
             Use.Transaction("test", delegate(IDbCommand cmd)
             {
                 cmd.CommandText =
-					@"
+                    @"
 if object_id('User2Role') is not null
     drop table User2Role;
 if object_id('Roles') is not null
@@ -51,7 +50,6 @@ create table People ( id int identity, userid int not null, firstname nvarchar(2
 ";
                 cmd.ExecuteNonQuery();
             });
-        }
 
         public static void AssertNames(IList<string[]> names)
         {

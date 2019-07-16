@@ -14,10 +14,7 @@ namespace ReactiveETL.Operations
         /// Enumerable operation constructor
         /// </summary>
         /// <param name="enumeration">enumeration to use as data input</param>
-        public InputEnumerableOperation(IEnumerable<T> enumeration)
-        {
-            _enumeration = enumeration;
-        }
+        public InputEnumerableOperation(IEnumerable<T> enumeration) => _enumeration = enumeration;
 
         /// <summary>
         /// Notifies the observer of a new value in the sequence. It's best to override Dispatch or TreatRow than this method because this method contains pipelining logic.

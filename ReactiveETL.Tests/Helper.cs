@@ -23,8 +23,8 @@ namespace ReactiveETL.Tests
         {
             T res = default(T);
             string content = Helper.LoadFromRessourceFile(ressourceFileName);
-            XmlSerializer serializer = new XmlSerializer(typeof(T));
-            using (StringReader reader = new StringReader(content))
+            var serializer = new XmlSerializer(typeof(T));
+            using (var reader = new StringReader(content))
             {
                 res = (T)serializer.Deserialize(reader);
             }
@@ -44,7 +44,7 @@ namespace ReactiveETL.Tests
                 ressourceFileName,
                 input =>
                 {
-                    using (StreamReader reader = new StreamReader(input))
+                    using (var reader = new StreamReader(input))
                     {
                         res = reader.ReadToEnd();
                     }

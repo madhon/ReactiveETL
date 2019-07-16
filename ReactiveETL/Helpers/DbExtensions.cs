@@ -18,7 +18,7 @@ namespace ReactiveETL
         /// <returns>command operation</returns>
         public static CommandOperation DbCommand(this IObservableOperation observed, CommandActivator activator)
         {
-            CommandOperation cmd = new CommandOperation(activator);
+            var cmd = new CommandOperation(activator);
             observed.Subscribe(cmd);
             return cmd;
         }
@@ -33,7 +33,7 @@ namespace ReactiveETL
         {
             var activator = new CommandActivator();
             act(activator);
-            CommandOperation cmd = new CommandOperation(activator);
+            var cmd = new CommandOperation(activator);
             observed.Subscribe(cmd);
             return cmd;
         }
@@ -45,10 +45,7 @@ namespace ReactiveETL
         /// <param name="connStr">Name of a connection string defined in the application configuration file</param>
         /// <param name="CommandText">text of the command</param>
         /// <returns>command operation</returns>
-        public static CommandOperation DbCommand(this IObservableOperation observed, string connStr, string CommandText)
-        {
-            return observed.DbCommand(connStr, CommandText, false, null);
-        }
+        public static CommandOperation DbCommand(this IObservableOperation observed, string connStr, string CommandText) => observed.DbCommand(connStr, CommandText, false, null);
 
         /// <summary>
         /// Apply a command operation
@@ -57,10 +54,7 @@ namespace ReactiveETL
         /// <param name="connection">Database connection</param>
         /// <param name="CommandText">text of the command</param>
         /// <returns>command operation</returns>
-        public static CommandOperation DbCommand(this IObservableOperation observed, IDbConnection connection, string CommandText)
-        {
-            return observed.DbCommand(connection, CommandText, false, null);
-        }
+        public static CommandOperation DbCommand(this IObservableOperation observed, IDbConnection connection, string CommandText) => observed.DbCommand(connection, CommandText, false, null);
 
         /// <summary>
         /// Apply a command operation
@@ -69,10 +63,7 @@ namespace ReactiveETL
         /// <param name="connStr">name of a connection string defined in the application configuration file</param>
         /// <param name="prepare">callback method to prepare the command</param>
         /// <returns>command operation</returns>
-        public static CommandOperation DbCommand(this IObservableOperation observed, string connStr, Action<IDbCommand, Row> prepare)
-        {
-            return observed.DbCommand(connStr, null, false, prepare);
-        }
+        public static CommandOperation DbCommand(this IObservableOperation observed, string connStr, Action<IDbCommand, Row> prepare) => observed.DbCommand(connStr, null, false, prepare);
 
         /// <summary>
         /// Apply a command operation
@@ -81,10 +72,7 @@ namespace ReactiveETL
         /// <param name="connection">Database connection</param>
         /// <param name="prepare">callback method to prepare the command</param>
         /// <returns>command operation</returns>
-        public static CommandOperation DbCommand(this IObservableOperation observed, IDbConnection connection, Action<IDbCommand, Row> prepare)
-        {
-            return observed.DbCommand(connection, null, false, prepare);
-        }
+        public static CommandOperation DbCommand(this IObservableOperation observed, IDbConnection connection, Action<IDbCommand, Row> prepare) => observed.DbCommand(connection, null, false, prepare);
 
         /// <summary>
         /// Apply a command operation
@@ -94,10 +82,7 @@ namespace ReactiveETL
         /// <param name="CommandText">text of the command</param>
         /// <param name="prepare">callback method to prepare the command</param>
         /// <returns>command operation</returns>
-        public static CommandOperation DbCommand(this IObservableOperation observed, string connStr, string CommandText, Action<IDbCommand, Row> prepare)
-        {
-            return observed.DbCommand(connStr, null, false, prepare);
-        }
+        public static CommandOperation DbCommand(this IObservableOperation observed, string connStr, string CommandText, Action<IDbCommand, Row> prepare) => observed.DbCommand(connStr, null, false, prepare);
 
         /// <summary>
         /// Apply a command operation
@@ -107,10 +92,7 @@ namespace ReactiveETL
         /// <param name="CommandText">text of the command</param>
         /// <param name="prepare">callback method to prepare the command</param>
         /// <returns>command operation</returns>
-        public static CommandOperation DbCommand(this IObservableOperation observed, IDbConnection connection, string CommandText, Action<IDbCommand, Row> prepare)
-        {
-            return observed.DbCommand(connection, null, false, prepare);
-        }
+        public static CommandOperation DbCommand(this IObservableOperation observed, IDbConnection connection, string CommandText, Action<IDbCommand, Row> prepare) => observed.DbCommand(connection, null, false, prepare);
 
         /// <summary>
         /// Apply a command operation
@@ -123,7 +105,7 @@ namespace ReactiveETL
         /// <returns>command operation</returns>
         public static CommandOperation DbCommand(this IObservableOperation observed, IDbConnection connection, string CommandText, bool isQuery, Action<IDbCommand, Row> prepare)
         {
-            CommandActivator activator = new CommandActivator();
+            var activator = new CommandActivator();
 
             activator.Connection = connection;
             activator.CommandText = CommandText;
@@ -144,7 +126,7 @@ namespace ReactiveETL
         /// <returns>command operation</returns>
         public static CommandOperation DbCommand(this IObservableOperation observed, string connStr, string CommandText, bool isQuery, Action<IDbCommand, Row> prepare)
         {
-            CommandActivator activator = new CommandActivator();
+            var activator = new CommandActivator();
 
             activator.ConnStringName = connStr;
             activator.CommandText = CommandText;

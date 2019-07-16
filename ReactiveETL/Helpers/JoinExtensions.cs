@@ -19,7 +19,7 @@ namespace ReactiveETL
         /// <returns>resulting operation</returns>
         public static JoinOperation<T> Join<T>(this IObservableOperation observed, JoinActivator<T> activator)
         {
-            JoinOperation<T> op = new JoinOperation<T>(activator);
+            var op = new JoinOperation<T>(activator);
             observed.Subscribe(op);
             return op;
         }
@@ -35,7 +35,7 @@ namespace ReactiveETL
         /// <returns>resulting operation</returns>
         public static JoinOperation<T> Join<T>(this IObservableOperation observed, IEnumerable<T> list, Func<Row, T, bool> checkMatch, Func<Row, T, Row> processrow)
         {
-            JoinActivator<T> activator = new JoinActivator<T>();
+            var activator = new JoinActivator<T>();
             activator.List = list;
             activator.CheckMatch = checkMatch;
             activator.ProcessRow = processrow;
@@ -53,7 +53,7 @@ namespace ReactiveETL
         /// <returns>resulting operation</returns>
         public static JoinOperation<Row> Join(this IObservableOperation observed, IObservableOperation rightOp, Func<Row, Row, bool> checkMatch, Func<Row, Row, Row> processrow)
         {
-            OperationJoinActivator activator = new OperationJoinActivator();
+            var activator = new OperationJoinActivator();
             activator.Operation = rightOp;
             activator.CheckMatch = checkMatch;
             activator.ProcessRow = processrow;
@@ -134,10 +134,7 @@ namespace ReactiveETL
         /// <param name="rightOp">operation to join</param>
         /// <param name="field">Name of the field used for the join</param>
         /// <returns>resulting operation</returns>
-        public static JoinOperation<Row> FullJoin(this IObservableOperation observed, IObservableOperation rightOp, string field)
-        {
-            return observed.FullJoin(rightOp, field, RowJoinHelper.MergeRows);
-        }
+        public static JoinOperation<Row> FullJoin(this IObservableOperation observed, IObservableOperation rightOp, string field) => observed.FullJoin(rightOp, field, RowJoinHelper.MergeRows);
 
         /// <summary>
         /// Join an enumeration of elements to the pipeline
@@ -146,10 +143,7 @@ namespace ReactiveETL
         /// <param name="rightOp">operation to join</param>
         /// <param name="field">Name of the field used for the join</param>
         /// <returns>resulting operation</returns>
-        public static JoinOperation<Row> FullJoin(this IObservableOperation observed, IEnumerable<Row> rightOp, string field)
-        {
-            return observed.FullJoin(rightOp, field, RowJoinHelper.MergeRows);
-        }
+        public static JoinOperation<Row> FullJoin(this IObservableOperation observed, IEnumerable<Row> rightOp, string field) => observed.FullJoin(rightOp, field, RowJoinHelper.MergeRows);
 
         /// <summary>
         /// Join an enumeration of elements to the pipeline
@@ -159,10 +153,7 @@ namespace ReactiveETL
         /// <param name="leftField">Name of the field used for the join</param>
         /// <param name="rightField">Name of the field used for the join</param>
         /// <returns>resulting operation</returns>
-        public static JoinOperation<Row> FullJoin(this IObservableOperation observed, IObservableOperation rightOp, string leftField, string rightField)
-        {
-            return observed.FullJoin(rightOp, leftField, rightField, RowJoinHelper.MergeRows);
-        }
+        public static JoinOperation<Row> FullJoin(this IObservableOperation observed, IObservableOperation rightOp, string leftField, string rightField) => observed.FullJoin(rightOp, leftField, rightField, RowJoinHelper.MergeRows);
 
         /// <summary>
         /// Join an enumeration of elements to the pipeline
@@ -172,10 +163,7 @@ namespace ReactiveETL
         /// <param name="leftField">Name of the field used for the join</param>
         /// <param name="rightField">Name of the field used for the join</param>
         /// <returns>resulting operation</returns>
-        public static JoinOperation<Row> FullJoin(this IObservableOperation observed, IEnumerable<Row> rightOp, string leftField, string rightField)
-        {
-            return observed.FullJoin(rightOp, leftField, rightField, RowJoinHelper.MergeRows);
-        }
+        public static JoinOperation<Row> FullJoin(this IObservableOperation observed, IEnumerable<Row> rightOp, string leftField, string rightField) => observed.FullJoin(rightOp, leftField, rightField, RowJoinHelper.MergeRows);
 
         /// <summary>
         /// Join an enumeration of elements to the pipeline

@@ -15,19 +15,13 @@ namespace ReactiveETL.Files
         /// Initializes a new instance of the <see cref="FileEngine"/> class.
         /// </summary>
         /// <param name="engine">The engine.</param>
-        public FileEngine(FileHelperAsyncEngine engine)
-        {
-            this.engine = engine;
-        }
+        public FileEngine(FileHelperAsyncEngine engine) => this.engine = engine;
 
         /// <summary>
         /// Writes the specified object to the file
         /// </summary>
         /// <param name="t">The t.</param>
-        public void Write(object t)
-        {
-            engine.WriteNext(t);
-        }
+        public void Write(object t) => engine.WriteNext(t);
 
         /// <summary>
         /// Set the behaviour on error
@@ -42,10 +36,7 @@ namespace ReactiveETL.Files
         /// <summary>
         /// Gets a value indicating whether this instance has errors.
         /// </summary>
-        public bool HasErrors
-        {
-            get { return engine.ErrorManager.HasErrors; }
-        }
+        public bool HasErrors => engine.ErrorManager.HasErrors;
 
         /// <summary>
         /// Outputs the errors to the specified file

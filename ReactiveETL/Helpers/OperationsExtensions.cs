@@ -44,10 +44,7 @@ namespace ReactiveETL
         /// </summary>
         /// <param name="observed">observed operation</param>
         /// <returns>List of row resulting from the pipeline</returns>
-        public static EtlFullResult Execute(this IObservableOperation observed)
-        {
-            return Execute(observed, true);
-        }
+        public static EtlFullResult Execute(this IObservableOperation observed) => Execute(observed, true);
 
         /// <summary>
         /// Execute the pipeline
@@ -57,7 +54,7 @@ namespace ReactiveETL
         /// <returns>List of row resulting from the pipeline</returns>
         public static EtlFullResult Execute(this IObservableOperation observed, bool throwOnError)
         {
-            RecordOperation record = new RecordOperation();
+            var record = new RecordOperation();
             observed.Subscribe(record);
             record.Start();
             
@@ -75,7 +72,7 @@ namespace ReactiveETL
         /// <returns>List of row resulting from the pipeline</returns>
         public static EtlFullResult ExecuteInThread(this IObservableOperation observed)
         {
-            RecordOperation record = new RecordOperation();
+            var record = new RecordOperation();
             observed.Subscribe(record);
             record.Result.Thread = new Thread(new ThreadStart(record.Trigger));
             record.Result.Thread.Start();
@@ -104,7 +101,7 @@ namespace ReactiveETL
         /// <returns>resulting operation</returns>
         public static RecordOperation Record(this IObservableOperation observed)
         {
-            RecordOperation observer = new RecordOperation();
+            var observer = new RecordOperation();
             observed.Subscribe(observer);
             return observer;
         }
@@ -131,7 +128,7 @@ namespace ReactiveETL
         /// <returns>resulting operation</returns>
         public static TransformOperation Transform(this IObservableOperation observed, Func<Row, Row> transform)
         {
-            TransformOperation op = new TransformOperation(transform);
+            var op = new TransformOperation(transform);
             observed.Subscribe(op);
             return op;
         }
@@ -144,7 +141,7 @@ namespace ReactiveETL
         /// <returns>resulting operation</returns>
         public static TransformOperation Many(this IObservableOperation observed, Func<Row, IEnumerable<Row>> transform)
         {
-            TransformOperation op = new TransformOperation(transform);
+            var op = new TransformOperation(transform);
             observed.Subscribe(op);
             return op;
         }
@@ -157,7 +154,7 @@ namespace ReactiveETL
         /// <returns>resulting operation</returns>
         public static FilterOperation Filter(this IObservableOperation observed, Predicate<Row> filterexpr)
         {
-            FilterOperation op = new FilterOperation(filterexpr);
+            var op = new FilterOperation(filterexpr);
             observed.Subscribe(op);
             return op;
         } 
@@ -170,7 +167,7 @@ namespace ReactiveETL
         /// <returns>resulting operation</returns>
         public static ApplyOperation Apply(this IObservableOperation observed, Action<Row> rowact)
         {
-            ApplyOperation op = new ApplyOperation(rowact);
+            var op = new ApplyOperation(rowact);
             observed.Subscribe(op);
             return op;
         }

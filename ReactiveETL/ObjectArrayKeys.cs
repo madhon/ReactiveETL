@@ -12,10 +12,7 @@ namespace ReactiveETL
         /// Initializes a new instance of the <see cref="ObjectArrayKeys"/> class.
         /// </summary>
         /// <param name="columnValues">The column values.</param>
-        public ObjectArrayKeys(object[] columnValues)
-        {
-            this.columnValues = columnValues;
-        }
+        public ObjectArrayKeys(object[] columnValues) => this.columnValues = columnValues;
 
         /// <summary>
         /// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.

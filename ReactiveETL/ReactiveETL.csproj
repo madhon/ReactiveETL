@@ -15,7 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FileHelpers" Version="3.4.0" />
+    <PackageReference Include="FileHelpers" Version="3.4.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.6.1" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
     <PackageReference Include="LibLog" Version="5.0.6">

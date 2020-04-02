@@ -1,0 +1,1 @@
+﻿#pragma warning disable 0436

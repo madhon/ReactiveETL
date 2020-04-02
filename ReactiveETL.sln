@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactiveETL", "ReactiveETL\ReactiveETL.csproj", "{49C75A85-661A-4D95-A991-C66D01C76F5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactiveETL", "ReactiveETL\ReactiveETL.csproj", "{49C75A85-661A-4D95-A991-C66D01C76F5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactiveETL.Tests", "ReactiveETL.Tests\ReactiveETL.Tests.csproj", "{A8578532-1E60-4FB9-BB8C-E7EEA7F0D2B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactiveETL.Tests", "ReactiveETL.Tests\ReactiveETL.Tests.csproj", "{A8578532-1E60-4FB9-BB8C-E7EEA7F0D2B7}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TestDatabase", "TestDatabase\TestDatabase.sqlproj", "{C758740D-DF36-46B3-90AE-FB4BF876DA16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactiveETL.MongoDb", "ReactiveETL.MongoDb\ReactiveETL.MongoDb.csproj", "{FD63FF75-0F12-4302-AF1C-87B7E722849C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,9 +31,16 @@ Global
 		{C758740D-DF36-46B3-90AE-FB4BF876DA16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C758740D-DF36-46B3-90AE-FB4BF876DA16}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C758740D-DF36-46B3-90AE-FB4BF876DA16}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FD63FF75-0F12-4302-AF1C-87B7E722849C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD63FF75-0F12-4302-AF1C-87B7E722849C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD63FF75-0F12-4302-AF1C-87B7E722849C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD63FF75-0F12-4302-AF1C-87B7E722849C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E7300A8-80FF-4C45-A3F5-DBD8C77DCA62}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = ReactiveETL.vsmdi

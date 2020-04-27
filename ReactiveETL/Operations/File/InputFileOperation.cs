@@ -2,10 +2,11 @@
 using System.IO;
 using System.Collections;
 using ReactiveETL.Files;
-using ReactiveETL.Logging;
 
 namespace ReactiveETL.Operations.File
 {
+    using Microsoft.Extensions.Logging;
+
     /// <summary>
     /// Operation for reading a file
     /// </summary>
@@ -16,13 +17,17 @@ namespace ReactiveETL.Operations.File
         private Stream _strm;
         private StreamReader _strmReader;
 
-        private readonly ILog log = LogProvider.GetCurrentClassLogger();
+        private readonly ILogger log;
 
         /// <summary>
         /// File read constructor
         /// </summary>
         /// <param name="filename">full path to the file</param>
-        public InputFileOperation(string filename) => _filename = filename;
+        public InputFileOperation(string filename, ILogger log)
+        {
+            _filename = filename;
+            this.log = log;
+        }
 
         /// <summary>
         /// File read constructor
@@ -66,7 +71,7 @@ namespace ReactiveETL.Operations.File
             }
             catch (Exception ex)
             {
-                log.ErrorException("Operation error", ex);
+                log.LogError("Operation error", ex);
                 Observers.PropagateOnError(ex);
             }
 

@@ -101,7 +101,7 @@ namespace ReactiveETL
         /// <returns>command operation</returns>
         public static InputCommandOperation Command(CommandActivator activator)
         {
-            var cmd = new InputCommandOperation(activator);
+            var cmd = new InputCommandOperation(activator, LogProvider.GetLogger(typeof(InputCommandOperation).ToString()));
             return cmd;
         }
 
@@ -155,7 +155,7 @@ namespace ReactiveETL
         /// <returns>file read operation</returns>
         public static InputFileOperation<T> ReadFile<T>(string filename)
         {
-            return new InputFileOperation<T>(filename);
+            return new InputFileOperation<T>(filename, LogProvider.GetLogger(typeof(InputCommandOperation).ToString()));
         }
 
         /// <summary>

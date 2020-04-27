@@ -2,12 +2,12 @@
 {
     using System;
     using Activators;
-    using Logging;
+    using Microsoft.Extensions.Logging;
     using MongoDB.Driver;
 
     public class MongoDbUpdateOperation<T> : AbstractOperation
     {
-        private readonly ILog log = LogProvider.GetCurrentClassLogger();
+        private readonly ILogger log;
 
         private CommandActivator _activator;
 
@@ -22,7 +22,9 @@
             string collectionName,
             Func<Row, FilterDefinition<T>> filter,
             Func<Row, UpdateDefinition<T>> update,
-            UpdateOptions options = null)
+            ILogger log,
+            UpdateOptions options = null
+            )
         {
             _activator = activator;
             this.database = database;
@@ -30,6 +32,7 @@
             this.filter = filter;
             this.update = update;
             this.options = options;
+            this.log = log;
         }
 
         /// <summary>
@@ -56,7 +59,7 @@
                 }
                 catch (MongoCommandException duplicateKeyException)
                 {
-                    log.Error(duplicateKeyException, $"Code:{duplicateKeyException.Code}, CodeName:{duplicateKeyException.CodeName}, ErrorMessage:{duplicateKeyException.ErrorMessage}, Message:{duplicateKeyException.Message}, Data:{duplicateKeyException.Data}, {value}");
+                    log.LogError(duplicateKeyException, $"Code:{duplicateKeyException.Code}, CodeName:{duplicateKeyException.CodeName}, ErrorMessage:{duplicateKeyException.ErrorMessage}, Message:{duplicateKeyException.Message}, Data:{duplicateKeyException.Data}, {value}");
 
                     if (session.IsInTransaction)
                     {
@@ -65,7 +68,7 @@
                 }
                 catch (Exception exc)
                 {
-                    log.Error(exc, $"Message:{exc.Message} {value}");
+                    log.LogError(exc, $"Message:{exc.Message} {value}");
 
                     if (session.IsInTransaction)
                     {

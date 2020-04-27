@@ -18,7 +18,7 @@ namespace ReactiveETL
         /// <returns>command operation</returns>
         public static CommandOperation DbCommand(this IObservableOperation observed, CommandActivator activator)
         {
-            var cmd = new CommandOperation(activator);
+            var cmd = new CommandOperation(activator, LogProvider.GetLogger(typeof(CommandOperation).ToString()));
             observed.Subscribe(cmd);
             return cmd;
         }
@@ -33,7 +33,7 @@ namespace ReactiveETL
         {
             var activator = new CommandActivator();
             act(activator);
-            var cmd = new CommandOperation(activator);
+            var cmd = new CommandOperation(activator, LogProvider.GetLogger(typeof(CommandOperation).ToString()));
             observed.Subscribe(cmd);
             return cmd;
         }

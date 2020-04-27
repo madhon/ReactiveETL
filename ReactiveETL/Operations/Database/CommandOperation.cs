@@ -1,25 +1,29 @@
 ﻿using System;
 using ReactiveETL.Activators;
-using ReactiveETL.Logging;
 
 namespace ReactiveETL.Operations.Database
 {
     using System.Data;
+    using Microsoft.Extensions.Logging;
 
     /// <summary>
     /// Operation that apply a database command. If this operation is a starting point (it does not observe anything), calling the process method will execute the command and start the pipeline.
     /// </summary>
     public class CommandOperation : AbstractOperation
     {
-        private readonly ILog log = LogProvider.GetCurrentClassLogger();
+        private readonly ILogger log;
 
-        private CommandActivator _activator;
+        private readonly CommandActivator _activator;
 
         /// <summary>
         /// Command operation constructor
         /// </summary>
         /// <param name="activator">command parameters</param>
-        public CommandOperation(CommandActivator activator) => _activator = activator;
+        public CommandOperation(CommandActivator activator, ILogger logger)
+        {
+            _activator = activator;
+            this.log = logger;
+        } 
 
         /// <summary>
         /// Notifies the observer of a new value in the sequence. It's best to override Dispatch or TreatRow than this method because this method contains pipeline logic.
@@ -30,10 +34,9 @@ namespace ReactiveETL.Operations.Database
             
             _activator.UseCommand(currentCommand =>
             {
-                if (_activator.Prepare != null)
-                    _activator.Prepare(currentCommand, value);
+                _activator.Prepare?.Invoke(currentCommand, value);
 
-                log.Info(DisplayName + " Execute command " + currentCommand.CommandText);
+                log.LogInformation(DisplayName + " Execute command " + currentCommand.CommandText);
 
                 if (_activator.IsQuery)
                 {
@@ -50,7 +53,7 @@ namespace ReactiveETL.Operations.Database
                                 if (_activator.FailOnError)
                                     throw;
 
-                                log.WarnException("Non blocking operation error", ex);
+                                log.LogWarning("Non blocking operation error", ex);
                             }
                         }
 

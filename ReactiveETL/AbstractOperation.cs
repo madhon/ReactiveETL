@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using ReactiveETL.Logging;
 
 namespace ReactiveETL
 {
@@ -15,12 +14,12 @@ namespace ReactiveETL
         private List<IObservableOperation> _observed = new List<IObservableOperation>();
 
 
+
         /// <summary>
         /// List of operation observed by this operation
         /// </summary>
         public List<IObservableOperation> Observed => _observed;
 
-        #region Observer
 
         /// <summary>
         /// Notifies the observer of a new value in the sequence. It's best to override Dispatch or TreatRow than this method because this method contains pipeline logic.
@@ -32,7 +31,6 @@ namespace ReactiveETL
 
             CountTreated++;
 
-            LogProvider.GetLogger(GetType()).Debug("Operation " + DisplayName + " called (" + CountTreated + ")");
             Dispatch(value);
         }
 
@@ -80,9 +78,7 @@ namespace ReactiveETL
                 Completed = true;
                 Observers.PropagateOnCompleted();
             }
-            LogProvider.GetLogger(GetType()).Debug("Operation " + DisplayName + " completed");
         }
-        #endregion
 
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.

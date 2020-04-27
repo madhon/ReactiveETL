@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Data;
 using ReactiveETL.Activators;
-using ReactiveETL.Logging;
 
 namespace ReactiveETL.Operations.Database
 {
+    using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Logging.Abstractions;
+
     /// <summary>
     /// Observable list of elements
     /// </summary>
     public class InputCommandOperation : AbstractObservableOperation
     {
-        private readonly ILog log = LogProvider.GetCurrentClassLogger();
+        private readonly ILogger log;
 
         private CommandActivator _activator;
 
@@ -18,7 +20,12 @@ namespace ReactiveETL.Operations.Database
         /// Constructor of input command operation
         /// </summary>
         /// <param name="activator"></param>
-        public InputCommandOperation(CommandActivator activator) => _activator = activator;
+        public InputCommandOperation(CommandActivator activator, ILogger log)
+        {
+            _activator = activator;
+            this.log = log;
+
+        }
 
         /// <summary>
         /// Notifies the observer of a new value in the sequence. It's best to override Dispatch or TreatRow than this method because this method contains pipelining logic.
@@ -32,7 +39,7 @@ namespace ReactiveETL.Operations.Database
                     if (_activator.Prepare != null)
                         _activator.Prepare(currentCommand, null);
 
-                    log.Info(DisplayName + " Execute command " + currentCommand.CommandText);
+                    log.LogInformation(DisplayName + " Execute command " + currentCommand.CommandText);
 
                     if (_activator.IsQuery)
                     {
@@ -49,7 +56,7 @@ namespace ReactiveETL.Operations.Database
                                     if (_activator.FailOnError)
                                         throw;
 
-                                    log.WarnException("Non blocking operation error", ex);
+                                    log.LogWarning("Non blocking operation error", ex);
                                 }
                             }
 
@@ -63,7 +70,7 @@ namespace ReactiveETL.Operations.Database
             }
             catch (Exception ex)
             {
-                log.ErrorException("Operation error", ex);
+                log.LogError("Operation error", ex);
                 Observers.PropagateOnError(ex);
             }
             finally

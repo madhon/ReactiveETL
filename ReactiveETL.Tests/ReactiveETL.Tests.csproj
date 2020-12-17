@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <Company>Madhon</Company>
-    <Copyright>Copyright © Madhon 2016-2019</Copyright>
+    <Copyright>Copyright © Madhon 2016-2020</Copyright>
     <Authors>Madhon</Authors>
     <projectUrl>https://github.com/madhon/ReactiveETL</projectUrl>
-    <LangVersion>7.3</LangVersion>    
+    <LangVersion>8.0</LangVersion>    
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,14 +18,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
     <PackageReference Include="FileHelpers" Version="3.4.2" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Shouldly" Version="4.0.1" />
+    <PackageReference Include="Shouldly" Version="4.0.2" />
   </ItemGroup>
 
   <ItemGroup>

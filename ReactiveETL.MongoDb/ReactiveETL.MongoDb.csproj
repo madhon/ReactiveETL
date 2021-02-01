@@ -8,11 +8,17 @@
     <PackageProjectUrl>https://github.com/madhon/ReactiveETL</PackageProjectUrl>
     <Description>Reactive ETL is a rewrite of Rhino ETL using the reactive extensions for .Net.</Description>
     <PackageTags>Rx Reactive</PackageTags>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-    <Version>2.0.0</Version>
+    <AssemblyVersion>2.5.0.0</AssemblyVersion>
+    <Version>2.5.0</Version>
     <RepositoryUrl>https://github.com/madhon/ReactiveETL</RepositoryUrl>
     <LangVersion>8.0</LangVersion>    
     <RootNamespace>ReactiveETL</RootNamespace>
+
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +29,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ReactiveETL\ReactiveETL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE" Pack="true" PackagePath=""/>
   </ItemGroup>
 
 </Project>

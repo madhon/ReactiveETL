@@ -25,6 +25,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.20" />
     <PackageReference Include="MongoDB.Driver" Version="2.13.2" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="SharpCompress" Version="0.30.0" />
   </ItemGroup>
 
   <ItemGroup>

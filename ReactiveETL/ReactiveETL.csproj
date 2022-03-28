@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Company>Madhon</Company>
-    <Copyright>Copyright © Madhon 2016-2020</Copyright>
+    <Copyright>Copyright © Madhon 2016-2022</Copyright>
     <Authors>Madhon</Authors>
     <PackageProjectUrl>https://github.com/madhon/ReactiveETL</PackageProjectUrl>
     <Description>Reactive ETL is a rewrite of Rhino ETL using the reactive extensions for .Net.</Description>
@@ -12,8 +12,6 @@
     <Version>2.5.0</Version>
     <RepositoryUrl>https://github.com/madhon/ReactiveETL</RepositoryUrl>
     <LangVersion>8.0</LangVersion>
-
-
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
@@ -24,8 +22,8 @@
   <ItemGroup>
     <PackageReference Include="FileHelpers" Version="3.5.1" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="3.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.21" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.21" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.23" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.23" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />

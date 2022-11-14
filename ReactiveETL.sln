@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29926.136
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactiveETL", "ReactiveETL\ReactiveETL.csproj", "{49C75A85-661A-4D95-A991-C66D01C76F5B}"
 EndProject
@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactiveETL.Tests", "Reacti
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TestDatabase", "TestDatabase\TestDatabase.sqlproj", "{C758740D-DF36-46B3-90AE-FB4BF876DA16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactiveETL.MongoDb", "ReactiveETL.MongoDb\ReactiveETL.MongoDb.csproj", "{FD63FF75-0F12-4302-AF1C-87B7E722849C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactiveETL.MongoDb", "ReactiveETL.MongoDb\ReactiveETL.MongoDb.csproj", "{FD63FF75-0F12-4302-AF1C-87B7E722849C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -11,6 +11,12 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TestDatabase", "TestDatabas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactiveETL.MongoDb", "ReactiveETL.MongoDb\ReactiveETL.MongoDb.csproj", "{FD63FF75-0F12-4302-AF1C-87B7E722849C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BE465FD7-A645-4F35-BF41-146B2C856214}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

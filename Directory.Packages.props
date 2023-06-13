@@ -8,7 +8,7 @@
     <!-- Microsoft packages -->
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.1.0" />
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="6.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.3" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.1" />
     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.6.2" />

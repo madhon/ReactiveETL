@@ -15,7 +15,7 @@
     <!-- 3rd party packages -->
     <PackageVersion Include="FileHelpers" Version="3.5.2" />
     <PackageVersion Include="MongoDB.Driver" Version="2.20.0" />
-    <PackageVersion Include="SharpCompress" Version="0.32.2" />
+    <PackageVersion Include="SharpCompress" Version="0.33.0" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageVersion Include="Shouldly" Version="4.2.1" />
     <PackageVersion Include="xunit" Version="2.5.0" />

@@ -1,37 +1,38 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Company>Madhon</Company>
-    <Copyright>Copyright © Madhon 2016-2020</Copyright>
-    <Authors>Madhon</Authors>
-    <projectUrl>https://github.com/madhon/ReactiveETL</projectUrl>
-    <LangVersion>8.0</LangVersion>
+	<TargetFramework>net6.0</TargetFramework>
+	<Company>Madhon</Company>
+	<Copyright>Copyright © Madhon 2016-2020</Copyright>
+	<Authors>Madhon</Authors>
+	<projectUrl>https://github.com/madhon/ReactiveETL</projectUrl>
+	<LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Files\FileReadTest.txt" />
+	<None Remove="Files\FileReadTest.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Files\FileReadTest.txt" />
+	<EmbeddedResource Include="Files\FileReadTest.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FileHelpers" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="Newtonsoft.Json" />
-    <PackageReference Include="Shouldly"/>
-    <PackageReference Include="System.Net.Http" />
-    <PackageReference Include="System.Security.Cryptography.Xml" />
-    <PackageReference Include="System.Text.RegularExpressions"  />
-    <PackageReference Include="xunit"  />
-    <PackageReference Include="xunit.runner.visualstudio" >
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+	<PackageReference Include="FileHelpers" />
+	<PackageReference Include="Microsoft.NET.Test.Sdk" />
+	<PackageReference Include="Newtonsoft.Json" />
+	<PackageReference Include="FluentAssertions"/>
+	<PackageReference Include="System.Net.Http" />
+	<PackageReference Include="System.Security.Cryptography.Xml" />
+	<PackageReference Include="System.Security.Cryptography.Pkcs" />
+	<PackageReference Include="System.Text.RegularExpressions"  />
+	<PackageReference Include="xunit"  />
+	<PackageReference Include="xunit.runner.visualstudio" >
+	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  <PrivateAssets>all</PrivateAssets>
+	</PackageReference>
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\ReactiveETL\ReactiveETL.csproj" />
+	<ProjectReference Include="..\ReactiveETL\ReactiveETL.csproj" />
   </ItemGroup>
 </Project>

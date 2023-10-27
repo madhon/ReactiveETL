@@ -1,25 +1,27 @@
 <Project>
-  <ItemGroup>
-    <!-- System packages -->
-    <PackageVersion Include="System.Configuration.ConfigurationManager" Version="6.0.1" />
-    <PackageVersion Include="System.Net.Http" Version="4.3.4" />
-    <PackageVersion Include="System.Security.Cryptography.Xml" Version="6.0.1" />
-    <PackageVersion Include="System.Text.RegularExpressions" Version="4.3.1" />
-    <!-- Microsoft packages -->
-    <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.1.2" />
-    <PackageVersion Include="Azure.Identity" Version="1.10.3" />
-    <PackageVersion Include="Microsoft.Extensions.Logging" Version="6.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.3" />
-    <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
-    <!-- 3rd party packages -->
-    <PackageVersion Include="FileHelpers" Version="3.5.2" />
-    <PackageVersion Include="MongoDB.Driver" Version="2.22.0" />
-    <PackageVersion Include="SharpCompress" Version="0.34.1" />
-    <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageVersion Include="Shouldly" Version="4.2.1" />
-    <PackageVersion Include="xunit" Version="2.5.3" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.3" />
-  </ItemGroup>
+	<ItemGroup>
+	<!-- System packages -->
+	<PackageVersion Include="System.Configuration.ConfigurationManager" Version="6.0.1" />
+	<PackageVersion Include="System.Net.Http" Version="4.3.4" />
+	<PackageVersion Include="System.Security.Cryptography.Xml" Version="6.0.1" />
+	<PackageVersion Include="System.Security.Cryptography.Pkcs" Version="6.0.4" />
+	<PackageVersion Include="System.Text.RegularExpressions" Version="4.3.1" />
+	<!-- Microsoft packages -->
+	<PackageVersion Include="Microsoft.Data.SqlClient" Version="5.1.2" />
+	<PackageVersion Include="Azure.Identity" Version="1.10.3" />
+	<PackageVersion Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+	<PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.3" />
+	<PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
+	<PackageVersion Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+	<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
+	<!-- 3rd party packages -->
+	<PackageVersion Include="FileHelpers" Version="3.5.2" />
+	<PackageVersion Include="MongoDB.Driver" Version="2.22.0" />
+	<PackageVersion Include="SharpCompress" Version="0.34.1" />
+	<PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
+	<PackageVersion Include="Shouldly" Version="4.2.1" />
+	<PackageVersion Include="FluentAssertions" Version="6.12.0" />
+	<PackageVersion Include="xunit" Version="2.5.3" />
+	<PackageVersion Include="xunit.runner.visualstudio" Version="2.5.3" />
+	</ItemGroup>
 </Project>

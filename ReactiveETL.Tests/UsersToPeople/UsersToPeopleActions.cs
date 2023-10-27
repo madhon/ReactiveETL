@@ -1,10 +1,8 @@
-﻿using System.Data;
-using System.Linq;
-using ReactiveETL.Infrastructure;
-using Shouldly;
-
-namespace ReactiveETL.Tests
+﻿namespace ReactiveETL.Tests
 {
+    using System.Data;
+    using ReactiveETL.Infrastructure;
+    using FluentAssertions;
     using System.Collections.Generic;
 
     class UsersToPeopleActions
@@ -27,13 +25,13 @@ namespace ReactiveETL.Tests
             cmd.AddParameter("FirstName", row["FirstName"]);
             cmd.AddParameter("LastName", row["LastName"]);
             cmd.AddParameter("Email", row["Email"]);
-        }        
+        }
 
         public static void VerifyResult(EtlFullResult result)
         {
-            result.Completed.ShouldBe(true);
-            result.Count.ShouldBe(4);
-            result.CountExceptions.ShouldBe(0);
+            result.Completed.Should().Be(true);
+            result.Count.Should().Be(4);
+            result.CountExceptions.Should().Be(0);
             
             System.Collections.Generic.List<string[]> names = Use.Transaction<System.Collections.Generic.List<string[]>>("test", delegate(IDbCommand cmd)
             {
@@ -49,6 +47,6 @@ namespace ReactiveETL.Tests
                 return tuples;
             });
             BaseUserToPeopleTest.AssertNames(names);
-        } 
+        }
     }
 }

@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using Shouldly;
+    using FluentAssertions;
     using Xunit;
 
     public class UsingDALFixture
@@ -26,7 +26,7 @@
                     ff => ff.HeaderText = "Id\tName\tEmail")
                 .Start();
             string actual = File.ReadAllText("users.txt");
-            actual.ShouldBe(expected.Replace("\r\n", "\n").Replace("\n", Environment.NewLine));
+            actual.Should().Be(expected.Replace("\r\n", "\n").Replace("\n", Environment.NewLine));
         }
 
         [Fact]
@@ -40,7 +40,7 @@
                 .Apply(row => MySimpleDal.Save(row.ToObject<User>()))
                 .Start();
 
-            MySimpleDal.Users.Count.ShouldBe(5);
+            MySimpleDal.Users.Count.Should().Be(5);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿namespace ReactiveETL.Tests
 {
     using Infrastructure;
-    using Shouldly;
+    using FluentAssertions;
     using Xunit;
 
     public class UsersToPeopleFixture : BaseUserToPeopleTest
@@ -47,7 +47,7 @@
                 .DbCommand("test", UsersToPeopleActions.WritePeople)
                 .ExecuteInThread();
             // Check that we effectively start the process in another thread
-            result.Completed.ShouldBe(false);
+            result.Completed.Should().Be(false);
             // wait for completion
             result.Thread.Join();
             UsersToPeopleActions.VerifyResult(result);

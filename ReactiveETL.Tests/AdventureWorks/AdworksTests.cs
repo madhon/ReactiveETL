@@ -2,7 +2,7 @@
 {
     using System;
     using System.Data;
-    using Shouldly;
+    using FluentAssertions;
     using Xunit;
 
     /// <summary>
@@ -50,10 +50,9 @@
             Console.WriteLine("num products " + products.Result.Count);
             Console.WriteLine("num products images " + productImage.Result.Count);
             Console.WriteLine("num products images " + productCategory.Result.Count);
-
-            products.Result.Count.ShouldBeGreaterThan(0);
-            productImage.Result.Count.ShouldBeGreaterThan(0);
-            productCategory.Result.Count.ShouldBeGreaterThan(0);
+            products.Result.Count.Should().BeGreaterThan(0);
+            productImage.Result.Count.Should().BeGreaterThan(0);
+            productCategory.Result.Count.Should().BeGreaterThan(0);
         }
 
         private bool HasCategory(Row row) => row["cat_id"] != null && !string.IsNullOrEmpty(row["cat_id"].ToString());

@@ -3,7 +3,7 @@ namespace ReactiveETL.Tests
     using System.Collections.Generic;
     using System.Data;
     using ReactiveETL.Infrastructure;
-    using Shouldly;
+    using FluentAssertions;
 
     public class BaseUserToPeopleTest
     {
@@ -53,14 +53,14 @@ create table People ( id int identity, userid int not null, firstname nvarchar(2
 
         public static void AssertNames(IList<string[]> names)
         {
-            names[0][0].ShouldBe("ayende");
-            names[0][1].ShouldBe("rahien");
-            names[1][0].ShouldBe("foo");
-            names[1][1].ShouldBe("bar");
-            names[2][0].ShouldBe("nice");
-            names[2][1].ShouldBe("naughty");
-            names[3][0].ShouldBe("gold");
-            names[3][1].ShouldBe("silver");
+            names[0][0].Should().Be("ayende");
+            names[0][1].Should().Be("rahien");
+            names[1][0].Should().Be("foo");
+            names[1][1].Should().Be("bar");
+            names[2][0].Should().Be("nice");
+            names[2][1].Should().Be("naughty");
+            names[3][0].Should().Be("gold");
+            names[3][1].Should().Be("silver");
         }
     }
 }

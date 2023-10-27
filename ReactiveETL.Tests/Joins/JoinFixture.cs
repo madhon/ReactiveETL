@@ -1,7 +1,7 @@
 ﻿namespace ReactiveETL.Tests.Joins
 {
     using System.Collections.Generic;
-    using Shouldly;
+    using FluentAssertions;
     using Xunit;
 
     public class JoinFixture : BaseJoinFixture
@@ -13,8 +13,8 @@
 
             List<Row> items = (List<Row>)result.Data;
 
-            items.Count.ShouldBe(1);
-            items[0]["person_id"].ShouldBe(3);
+            items.Count.Should().Be(1);
+            items[0]["person_id"].Should().Be(3);
         }
 
         [Fact]
@@ -24,10 +24,10 @@
 
             List<Row> items = (List<Row>)result.Data;
 
-            items.Count.ShouldBe(2);
-            items[0]["person_id"].ShouldBe(3);
-            items[1]["name"].ShouldBe(null);
-            items[1]["person_id"].ShouldBe(5);
+            items.Count.Should().Be(2);
+            items[0]["person_id"].Should().Be(3);
+            items[1]["name"].Should().Be(null);
+            items[1]["person_id"].Should().Be(5);
         }
 
         [Fact]
@@ -36,9 +36,9 @@
             var result = Input.From(left).LeftJoin(Input.From(right), "email", MergeRows).Execute();
             List<Row> items = (List<Row>)result.Data;
 
-            items.Count.ShouldBe(2);
-            items[0]["person_id"].ShouldBe(3);
-            items[1]["name"].ShouldBe("bar");
+            items.Count.Should().Be(2);
+            items[0]["person_id"].Should().Be(3);
+            items[1]["name"].Should().Be("bar");
         }
 
         [Fact]
@@ -47,21 +47,21 @@
             var result = Input.From(left).FullJoin(Input.From(right), "email", MergeRows).Execute();
             List<Row> items = (List<Row>)result.Data;
 
-            items.Count.ShouldBe(3);
-            items[0]["person_id"].ShouldBe(3);
+            items.Count.Should().Be(3);
+            items[0]["person_id"].Should().Be(3);
 
-            items[1]["name"].ShouldBe("bar");
+            items[1]["name"].Should().Be("bar");
 
-            items[2]["name"].ShouldBe(null);
-            items[2]["person_id"].ShouldBe(5);
+            items[2]["name"].Should().Be(null);
+            items[2]["person_id"].Should().Be(5);
         }
 
         [Fact]
         public void CanJoinOnEnumerable()
         {
             var result = Input.From(left).Join(right, new RowJoinHelper("email").InnerJoinMatch, MergeRows).Execute();
-            result.Count.ShouldBe(1);
-            ((List<Row>)result.Data)[0]["person_id"].ShouldBe(3);
+            result.Count.Should().Be(1);
+            ((List<Row>)result.Data)[0]["person_id"].Should().Be(3);
        }
 
         [Fact]
@@ -73,10 +73,10 @@
                 .RightJoin(Input.From(right).Transform(RowColumnToUpperCase), "email", MergeRows)
                 .Execute();
 
-            result.Count.ShouldBe(2);
-            ((List<Row>)result.Data)[0]["name"].ShouldBe("FOO");
-            ((List<Row>)result.Data)[0]["email"].ShouldBe("FOO@EXAMPLE.ORG");
-            ((List<Row>)result.Data)[1]["person_id"].ShouldBe(5);
+            result.Count.Should().Be(2);
+            ((List<Row>)result.Data)[0]["name"].Should().Be("FOO");
+            ((List<Row>)result.Data)[0]["email"].Should().Be("FOO@EXAMPLE.ORG");
+            ((List<Row>)result.Data)[1]["person_id"].Should().Be(5);
         }
 
         private Row RowColumnToUpperCase(Row row)

@@ -19,7 +19,7 @@
     <PackageVersion Include="SharpCompress" Version="0.34.2" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
     <!-- testing packages -->
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
     <PackageVersion Include="Shouldly" Version="4.2.1" />
     <PackageVersion Include="FluentAssertions" Version="6.12.0" />
     <PackageVersion Include="xunit" Version="2.6.5" />

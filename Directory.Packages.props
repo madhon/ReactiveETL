@@ -7,7 +7,7 @@
     <PackageVersion Include="System.Security.Cryptography.Pkcs" Version="6.0.4" />
     <PackageVersion Include="System.Text.RegularExpressions" Version="4.3.1" />
     <!-- Microsoft packages -->
-    <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.1.5" />
+    <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.2.0" />
     <PackageVersion Include="Azure.Identity" Version="1.10.4" />
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="6.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.3" />

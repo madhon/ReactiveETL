@@ -10,7 +10,7 @@
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.1.5" />
     <PackageVersion Include="Azure.Identity" Version="1.10.4" />
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="6.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.3" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
     <!-- 3rd party packages -->

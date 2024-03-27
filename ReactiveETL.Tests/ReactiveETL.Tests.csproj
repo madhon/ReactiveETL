@@ -1,15 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-	<TargetFramework>net6.0</TargetFramework>
+	<TargetFramework>net8.0</TargetFramework>
 	<Company>Madhon</Company>
 	<Copyright>Copyright © Madhon 2016-2020</Copyright>
 	<Authors>Madhon</Authors>
 	<projectUrl>https://github.com/madhon/ReactiveETL</projectUrl>
-	<LangVersion>8.0</LangVersion>
+	<LangVersion>12.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
 	<None Remove="Files\FileReadTest.txt" />
+	<None Update="App.config">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</None>
   </ItemGroup>
 
   <ItemGroup>

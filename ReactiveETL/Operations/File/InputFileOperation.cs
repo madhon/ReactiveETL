@@ -11,7 +11,7 @@ namespace ReactiveETL.Operations.File
     /// Operation for reading a file
     /// </summary>
     /// <typeparam name="T">type of the objects in the file</typeparam>
-    public class InputFileOperation<T> : AbstractObservableOperation
+    public partial class InputFileOperation<T> : AbstractObservableOperation
     {
         private string _filename;
         private Stream _strm;
@@ -71,7 +71,7 @@ namespace ReactiveETL.Operations.File
             }
             catch (Exception ex)
             {
-                log.LogError("Operation error", ex);
+                LogOperationError(ex);
                 Observers.PropagateOnError(ex);
             }
 
@@ -86,5 +86,12 @@ namespace ReactiveETL.Operations.File
                 Observers.PropagateOnNext(Row.FromObject(fList.Current));
             }
         }
+        
+        [LoggerMessage(
+            1001,
+            LogLevel.Error,
+            "Operation error",
+            EventName = "Operation error")]
+        partial void LogOperationError(Exception ex);
     }
 }

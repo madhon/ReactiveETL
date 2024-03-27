@@ -9,7 +9,7 @@ namespace ReactiveETL.Operations.Database
     /// <summary>
     /// Operation that apply a database command. If this operation is a starting point (it does not observe anything), calling the process method will execute the command and start the pipeline.
     /// </summary>
-    public class CommandOperation : AbstractOperation
+    public partial class CommandOperation : AbstractOperation
     {
         private readonly ILogger log;
 
@@ -36,7 +36,7 @@ namespace ReactiveETL.Operations.Database
             {
                 _activator.Prepare?.Invoke(currentCommand, value);
 
-                log.LogInformation(DisplayName + " Execute command " + currentCommand.CommandText);
+                LogDisplayNameCommandText(DisplayName, currentCommand.CommandText);
 
                 if (_activator.IsQuery)
                 {
@@ -53,7 +53,7 @@ namespace ReactiveETL.Operations.Database
                                 if (_activator.FailOnError)
                                     throw;
 
-                                log.LogWarning("Non blocking operation error", ex);
+                                LogNonBlockingError(ex);
                             }
                         }
 
@@ -76,5 +76,20 @@ namespace ReactiveETL.Operations.Database
             _activator.Release();
             base.OnCompleted();
         }
+        
+        [LoggerMessage(
+            1000,
+            LogLevel.Warning,
+            "Non blocking operation error",
+            EventName = "LogNonBlockingError")]
+        private partial void LogNonBlockingError(Exception ex);
+        
+        [LoggerMessage(
+            1002,
+            LogLevel.Information,
+            "{displayName} Execute command {commandText}",
+            EventName = "LogDisplayNameCommandText")]
+        private partial void LogDisplayNameCommandText(string displayName, string commandText);
+        
     }
 }

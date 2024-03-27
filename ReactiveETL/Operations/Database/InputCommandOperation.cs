@@ -10,7 +10,7 @@ namespace ReactiveETL.Operations.Database
     /// <summary>
     /// Observable list of elements
     /// </summary>
-    public class InputCommandOperation : AbstractObservableOperation
+    public partial class InputCommandOperation : AbstractObservableOperation
     {
         private readonly ILogger log;
 
@@ -37,9 +37,11 @@ namespace ReactiveETL.Operations.Database
                 _activator.UseCommand(currentCommand =>
                 {
                     if (_activator.Prepare != null)
+                    {
                         _activator.Prepare(currentCommand, null);
+                    }
 
-                    log.LogInformation(DisplayName + " Execute command " + currentCommand.CommandText);
+                    LogDisplayNameCommandText(DisplayName, currentCommand.CommandText);
 
                     if (_activator.IsQuery)
                     {
@@ -52,11 +54,13 @@ namespace ReactiveETL.Operations.Database
                                     Observers.PropagateOnNext(_activator.CreateRowFromReader(reader));
                                 }
                                 catch (Exception ex)
-                                {                
+                                {
                                     if (_activator.FailOnError)
+                                    {
                                         throw;
+                                    }
 
-                                    log.LogWarning("Non blocking operation error", ex);
+                                    LogNonBlockingError(ex);
                                 }
                             }
 
@@ -70,7 +74,7 @@ namespace ReactiveETL.Operations.Database
             }
             catch (Exception ex)
             {
-                log.LogError("Operation error", ex);
+                LogOperationError(ex);
                 Observers.PropagateOnError(ex);
             }
             finally
@@ -81,5 +85,26 @@ namespace ReactiveETL.Operations.Database
             Completed = true;
             Observers.PropagateOnCompleted();
         }
+        
+        [LoggerMessage(
+            1000,
+            LogLevel.Warning,
+            "Non blocking operation error",
+            EventName = "LogNonBlockingError")]
+        private partial void LogNonBlockingError(Exception ex);
+        
+        [LoggerMessage(
+            1001,
+            LogLevel.Error,
+            "Operation error",
+            EventName = "Operation error")]
+        partial void LogOperationError(Exception ex);
+        
+        [LoggerMessage(
+            1002,
+            LogLevel.Information,
+            "{displayName} Execute command {commandText}",
+            EventName = "LogDisplayNameCommandText")]
+        private partial void LogDisplayNameCommandText(string displayName, string commandText);
     }
 }

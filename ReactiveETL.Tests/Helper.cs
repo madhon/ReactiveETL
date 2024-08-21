@@ -65,7 +65,7 @@ namespace ReactiveETL.Tests
             string[] ressources = ass.GetManifestResourceNames();
             foreach (string resname in ressources)
             {
-                if (resname.EndsWith(ressourceFileName))
+                if (resname.EndsWith(ressourceFileName, StringComparison.OrdinalIgnoreCase))
                 {
                     file3 = ass.GetManifestResourceStream(resname);
                 }
@@ -86,7 +86,7 @@ namespace ReactiveETL.Tests
             string[] ressources = ass.GetManifestResourceNames();
             foreach (string resname in ressources)
             {
-                if (resname.EndsWith(ressourceFileName))
+                if (resname.EndsWith(ressourceFileName, StringComparison.OrdinalIgnoreCase))
                 {
                     file3 = ass.GetManifestResourceStream(resname);
                 }
@@ -110,7 +110,7 @@ namespace ReactiveETL.Tests
             string[] ressources = ass.GetManifestResourceNames();
             foreach (string resname in ressources)
             {
-                if (resname.EndsWith(ressourceFileName))
+                if (resname.EndsWith(ressourceFileName, StringComparison.OrdinalIgnoreCase))
                 {
                     using (Stream input = ass.GetManifestResourceStream(resname))
                     {

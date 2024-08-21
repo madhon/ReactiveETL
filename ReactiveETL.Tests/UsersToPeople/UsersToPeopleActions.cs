@@ -5,7 +5,7 @@
     using FluentAssertions;
     using System.Collections.Generic;
 
-    class UsersToPeopleActions
+    internal sealed class UsersToPeopleActions
     {
         public static string SelectAllUsers => "SELECT * FROM Users";
 

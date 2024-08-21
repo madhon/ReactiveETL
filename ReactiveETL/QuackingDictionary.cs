@@ -106,7 +106,7 @@ namespace ReactiveETL
         /// <summary>
         /// A debbug view of quacking dictionary
         /// </summary>
-        internal class QuackingDictionaryDebugView
+        internal sealed class QuackingDictionaryDebugView
         {
             private readonly IDictionary items;
 
@@ -138,7 +138,7 @@ namespace ReactiveETL
             /// Represent a single key/value pair for the debugger
             /// </summary>
             [DebuggerDisplay("{value}", Name = "[{key}]", Type = "")]
-            internal class KeyValuePair
+            internal sealed class KeyValuePair
             {
                 [DebuggerBrowsable(DebuggerBrowsableState.Never)]
                 private readonly object key;

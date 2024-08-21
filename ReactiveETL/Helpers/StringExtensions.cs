@@ -3,11 +3,18 @@ using System.Web;
 
 namespace ReactiveETL
 {
+    using System;
+
     /// <summary>
     /// Extension methods for strings
     /// </summary>
-    public static class StringExtensions
+    public static partial class StringExtensions
     {
+#pragma warning disable SYSLIB1045
+        private static readonly Regex RemoveHtmlRegex =
+            new(pattern: @"<(.|\n)*?>", RegexOptions.Compiled | RegexOptions.IgnoreCase, matchTimeout: TimeSpan.FromMilliseconds(1000));
+#pragma warning restore SYSLIB1045
+        
         /// <summary>
         /// Remove Html Markup
         /// </summary>
@@ -15,9 +22,13 @@ namespace ReactiveETL
         /// <returns></returns>
         public static string RemoveHtml(this object text)
         {
-            if (text == null) return null;
-            return HttpUtility.HtmlDecode(
-                        Regex.Replace((string)text, @"<(.|\n)*?>", string.Empty));
+            if (text == null)
+            {
+                return null;
+            }
+            
+            return HttpUtility.HtmlDecode(RemoveHtmlRegex.Replace((string)text, string.Empty));
+                //Regex.Replace((string)text, @"<(.|\n)*?>", string.Empty));
         }
 
         /// <summary>

@@ -11,7 +11,7 @@
     public class FileTest
     {
         [DelimitedRecord(";"), IgnoreFirst]
-        private class FileReadPoco
+        private sealed class FileReadPoco
         {
             public int Id { get; set; }
             public string Name { get; set; }

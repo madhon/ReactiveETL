@@ -2,7 +2,7 @@
 {
     using System;
 
-    class AnonymousDisposable : IDisposable
+    internal sealed class AnonymousDisposable : IDisposable
     {
         readonly Action dispose;
 

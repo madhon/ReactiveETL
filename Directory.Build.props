@@ -24,6 +24,9 @@
     <EnableConfigurationBindingGenerator>true</EnableConfigurationBindingGenerator>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <WarningsAsErrors>$(WarningsAsErrors);SYSLIB1045;CA1309;CA1310;CA1831;CA1832;CA1833;CA1827;CA1860;CA1820;CA1829;CA1845;CA1846;CA1848;CA1851;CA1852;IDE0028;IDE0030</WarningsAsErrors>
+  </PropertyGroup>
 
   <PropertyGroup Condition="'$(TF_BUILD)' == 'true' or '$(GITHUB_ACTIONS)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>

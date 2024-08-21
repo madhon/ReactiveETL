@@ -91,7 +91,7 @@ namespace ReactiveETL.Files
 
         private static string NormalizeFilename(string filename)
         {
-            if (filename.StartsWith("~") == false)
+            if (filename.StartsWith("~", StringComparison.OrdinalIgnoreCase) == false)
                 return filename;
             //note that this ignores rooted paths
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, filename);

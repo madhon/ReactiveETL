@@ -5,7 +5,7 @@
     using Microsoft.Extensions.Logging;
     using MongoDB.Driver;
 
-    public class MongoDbUpdateOperation<T> : AbstractOperation
+    public partial class MongoDbUpdateOperation<T> : AbstractOperation
     {
         private readonly ILogger log;
 
@@ -59,7 +59,7 @@
                 }
                 catch (MongoCommandException duplicateKeyException)
                 {
-                    log.LogError(duplicateKeyException, $"Code:{duplicateKeyException.Code}, CodeName:{duplicateKeyException.CodeName}, ErrorMessage:{duplicateKeyException.ErrorMessage}, Message:{duplicateKeyException.Message}, Data:{duplicateKeyException.Data}, {value}");
+                    LogDuplicateKeyException(duplicateKeyException, duplicateKeyException.Code, duplicateKeyException.CodeName, duplicateKeyException.ErrorMessage, duplicateKeyException.Message, duplicateKeyException.Data.ToString(), value);
 
                     if (session.IsInTransaction)
                     {
@@ -68,7 +68,7 @@
                 }
                 catch (Exception exc)
                 {
-                    log.LogError(exc, $"Message:{exc.Message} {value}");
+                    LogUnHandledRowException(value, exc);
 
                     if (session.IsInTransaction)
                     {
@@ -88,5 +88,17 @@
             _activator.Release();
             base.OnCompleted();
         }
+
+        [LoggerMessage(
+            EventId = 1001, 
+            Level = LogLevel.Error, 
+            Message = "Unhandled exception while processing row {value}")]
+        partial void LogUnHandledRowException(Row value, Exception exc);
+
+        [LoggerMessage(
+            EventId = 1002, 
+            Level = LogLevel.Error, 
+            Message = "Duplicate Key Exception: Code:{code}, CodeName:{codeName}, ErrorMessage:{errorMessage}, Message:{message}, Data:{data}, {value}")]
+        partial void LogDuplicateKeyException(MongoCommandException ex,  int code, string codeName, string errorMessage, string message, string data, Row value);
     }
 }

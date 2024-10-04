@@ -1,6 +1,6 @@
 <Project>
   <ItemGroup>
-    <PackageVersion Include="Azure.Core" Version="1.43.0" />
+    <PackageVersion Include="Azure.Core" Version="1.44.0" />
     <PackageVersion Include="Azure.Identity" Version="1.12.1" />
     <PackageVersion Include="Microsoft.Identity.Client.Extensions.Msal" Version="4.65.0" />
     <PackageVersion Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.1.0" />

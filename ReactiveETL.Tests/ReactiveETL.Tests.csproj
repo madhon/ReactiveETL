@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
 	<TargetFramework>net8.0</TargetFramework>
+	  <OutputType>Exe</OutputType>
 	<Company>Madhon</Company>
 	<Copyright>Copyright © Madhon 2016-2020</Copyright>
 	<Authors>Madhon</Authors>
@@ -28,7 +29,7 @@
 	<PackageReference Include="System.Security.Cryptography.Xml" />
 	<PackageReference Include="System.Security.Cryptography.Pkcs" />
 	<PackageReference Include="System.Text.RegularExpressions"  />
-	<PackageReference Include="xunit"  />
+	<PackageReference Include="xunit.v3.core"  />
 	<PackageReference Include="xunit.runner.visualstudio" >
 	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	  <PrivateAssets>all</PrivateAssets>

@@ -1,8 +1,9 @@
 ﻿namespace ReactiveETL.Tests.AdventureWorks
 {
     using System;
+    using System.Configuration;
     using System.Data;
-    using FluentAssertions;
+    using Shouldly;
     using Xunit;
 
     /// <summary>
@@ -14,6 +15,9 @@
         [Fact]
         public void AdventureWork()
         {
+            string path = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).FilePath;
+            
+            
             Input.NonQuery("output", CleanCatalog).Execute();
 
             var famillies = Input.Query("advwrk", "Select * from dimproductcategory").Named("SelectFamillies")
@@ -50,9 +54,9 @@
             Console.WriteLine("num products " + products.Result.Count);
             Console.WriteLine("num products images " + productImage.Result.Count);
             Console.WriteLine("num products images " + productCategory.Result.Count);
-            products.Result.Count.Should().BeGreaterThan(0);
-            productImage.Result.Count.Should().BeGreaterThan(0);
-            productCategory.Result.Count.Should().BeGreaterThan(0);
+            products.Result.Count.ShouldBeGreaterThan(0);
+            productImage.Result.Count.ShouldBeGreaterThan(0);
+            productCategory.Result.Count.ShouldBeGreaterThan(0);
         }
 
         private bool HasCategory(Row row) => row["cat_id"] != null && !string.IsNullOrEmpty(row["cat_id"].ToString());

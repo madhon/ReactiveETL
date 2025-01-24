@@ -2,7 +2,7 @@
 {
     using System.IO;
     using FileHelpers;
-    using FluentAssertions;
+    using Shouldly;
     using Xunit;
 
     /// <summary>
@@ -30,8 +30,8 @@
                     .WriteFile<FileReadPoco>("resultfile.txt")
                     .Execute();
 
-                File.Exists("resultfile.txt").Should().Be(true);
-                filecontent.Count.Should().Be(2);
+                File.Exists("resultfile.txt").ShouldBe(true);
+                filecontent.Count.ShouldBe(2);
                 File.Delete("resultfile.txt");
             }
         }

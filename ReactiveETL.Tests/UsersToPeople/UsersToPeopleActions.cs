@@ -2,7 +2,7 @@
 {
     using System.Data;
     using ReactiveETL.Infrastructure;
-    using FluentAssertions;
+    using Shouldly;
     using System.Collections.Generic;
 
     internal sealed class UsersToPeopleActions
@@ -29,9 +29,9 @@
 
         public static void VerifyResult(EtlFullResult result)
         {
-            result.Completed.Should().Be(true);
-            result.Count.Should().Be(4);
-            result.CountExceptions.Should().Be(0);
+            result.Completed.ShouldBe(true);
+            result.Count.ShouldBe(4);
+            result.CountExceptions.ShouldBe(0);
             
             System.Collections.Generic.List<string[]> names = Use.Transaction<System.Collections.Generic.List<string[]>>("test", delegate(IDbCommand cmd)
             {

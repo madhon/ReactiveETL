@@ -4,7 +4,7 @@
     using System.IO;
     using System.Linq;
     using Exceptions;
-    using FluentAssertions;
+    using Shouldly;
     using Xunit;
 
     public class ErrorsFixture
@@ -37,10 +37,10 @@
             }
             catch (EtlResultException ex)
             {
-                ex.EtlResult.CountExceptions.Should().Be(1);
+                ex.EtlResult.CountExceptions.ShouldBe(1);
                 var exc = ex.EtlResult.Exceptions.FirstOrDefault();
 
-                exc.Should().BeAssignableTo(typeof(InvalidDataException));
+                exc.ShouldBeAssignableTo<InvalidDataException>();
             }                       
         }
     }

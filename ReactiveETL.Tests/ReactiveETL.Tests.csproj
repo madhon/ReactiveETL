@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-	<TargetFramework>net8.0</TargetFramework>
+	<TargetFramework>net9.0</TargetFramework>
 	  <OutputType>Exe</OutputType>
 	<Company>Madhon</Company>
 	<Copyright>Copyright © Madhon 2016-2020</Copyright>
@@ -16,6 +16,10 @@
 	</None>
   </ItemGroup>
 
+	<Target Name="CopyCustomContent" AfterTargets="AfterBuild">
+		<Copy SourceFiles="app.config" DestinationFiles="$(OutDir)\ReSharperTestRunner.dll.config" />
+	</Target>
+	
   <ItemGroup>
 	<EmbeddedResource Include="Files\FileReadTest.txt" />
   </ItemGroup>
@@ -24,7 +28,8 @@
 	<PackageReference Include="FileHelpers" />
 	<PackageReference Include="Microsoft.NET.Test.Sdk" />
 	<PackageReference Include="Newtonsoft.Json" />
-	<PackageReference Include="FluentAssertions"/>
+	<PackageReference Include="Shouldly"/>
+	<PackageReference Include="System.Data.SqlClient" />
 	<PackageReference Include="System.Net.Http" />
 	<PackageReference Include="System.Security.Cryptography.Xml" />
 	<PackageReference Include="System.Security.Cryptography.Pkcs" />

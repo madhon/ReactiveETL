@@ -21,7 +21,7 @@ namespace ReactiveETL
         /// <summary>
         /// List of observers of this operation
         /// </summary>
-        List<IObserver<Row>> Observers { get; }
+        IList<IObserver<Row>> Observers { get; }
 
         /// <summary>
         /// Start the operation. Start method calls are bubbled up through the pipeline

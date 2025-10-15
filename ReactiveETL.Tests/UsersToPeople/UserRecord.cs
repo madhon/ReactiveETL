@@ -1,12 +1,11 @@
-namespace ReactiveETL.Tests
-{
-    using FileHelpers;
+namespace ReactiveETL.Tests;
 
-    [DelimitedRecord("\t"), IgnoreFirst]
-    public class UserRecord
-    {
-        public int Id;
-        public string Name;
-        public string Email;
-    }
+using FileHelpers;
+
+[DelimitedRecord("\t"), IgnoreFirst]
+public class UserRecord
+{
+    public int Id;
+    public string Name;
+    public string Email;
 }

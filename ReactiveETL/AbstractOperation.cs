@@ -84,9 +84,13 @@ namespace ReactiveETL
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
         /// <filterpriority>2</filterpriority>
-        public override void Dispose()
+        protected override void Dispose(bool disposing)
         {
-            Observed.DisposeAll();
+            if (disposing)
+            {
+                Observed.DisposeAll();
+            }
+            base.Dispose(disposing);
         }
 
         /// <summary>

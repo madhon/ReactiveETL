@@ -1,28 +1,28 @@
-﻿namespace ReactiveETL
+﻿namespace ReactiveETL;
+
+using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
+
+public static class LogProvider
 {
-    using System.Collections.Generic;
-    using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Logging.Abstractions;
+    private static readonly Dictionary<string, ILogger> Loggers = new ();
+    private static ILoggerFactory loggerFactory = new LoggerFactory();
 
-    public static class LogProvider
+    public static void SetLogFactory(ILoggerFactory factory)
     {
-        private static readonly IDictionary<string, ILogger> _loggers = new Dictionary<string, ILogger>();
-        private static ILoggerFactory _loggerFactory = new LoggerFactory();
+        loggerFactory?.Dispose();
+        loggerFactory = factory;
+        Loggers.Clear();
+    }
 
-        public static void SetLogFactory(ILoggerFactory factory)
+    public static ILogger GetLogger(string category)
+    {
+        if (!Loggers.TryGetValue(category, out _))
         {
-            _loggerFactory?.Dispose();
-            _loggerFactory = factory;
-            _loggers.Clear();
+            Loggers[category] = loggerFactory?.CreateLogger(category) ?? NullLogger.Instance;
         }
 
-        public static ILogger GetLogger(string category)
-        {
-            if (!_loggers.ContainsKey(category))
-            {
-                _loggers[category] = _loggerFactory?.CreateLogger(category) ?? NullLogger.Instance;
-            }
-            return _loggers[category];
-        }
+        return Loggers[category];
     }
 }

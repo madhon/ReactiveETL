@@ -1,82 +1,94 @@
-﻿using System;
+﻿namespace ReactiveETL;
+
+using System;
 using System.Collections.Generic;
 
-namespace ReactiveETL
+/// <summary>
+/// Base class for observable operations
+/// </summary>
+public abstract class AbstractObservableOperation : IObservableOperation
 {
+    private bool isDisposed;
+    private List<IObserver<Row>> _observers = new List<IObserver<Row>>();
+
     /// <summary>
-    /// Base class for observable operations
+    /// Number of elements treated
     /// </summary>
-    public class AbstractObservableOperation : IObservableOperation
+    public int CountTreated
     {
-        private List<IObserver<Row>> _observers = new List<IObserver<Row>>();
+        get;
+        protected set;
+    }
 
-        /// <summary>
-        /// Number of elements treated
-        /// </summary>
-        public int CountTreated
+    /// <summary>
+    /// Indicate if the operation is over
+    /// </summary>
+    public bool Completed { get; protected set; }
+
+    /// <summary>
+    /// Name of the operation
+    /// </summary>
+    public string Name { get; set; }
+
+    /// <summary>
+    /// Display name of the operation. Return the Name if available or GetType().Name otherwise
+    /// </summary>
+    public string DisplayName
+    {
+        get
         {
-            get;
-            protected set;
+            if (!string.IsNullOrEmpty(Name))
+                return Name;
+
+            return GetType().Name;
         }
+    }
 
-        /// <summary>
-        /// Indicate if the operation is over
-        /// </summary>
-        public bool Completed { get; protected set; }
+    /// <summary>
+    /// List of observers of this operation
+    /// </summary>
+    public IList<IObserver<Row>> Observers => _observers;
 
-        /// <summary>
-        /// Name of the operation
-        /// </summary>
-        public string Name { get; set; }
+    #region Observable
 
-        /// <summary>
-        /// Display name of the operation. Return the Name if available or GetType().Name otherwise
-        /// </summary>
-        public string DisplayName
+    /// <summary>
+    /// Subscribes an observer to the observable sequence.
+    /// </summary>
+    public virtual IDisposable Subscribe(IObserver<Row> observer)
+    {
+        if (observer is IOperation)
         {
-            get
-            {
-                if (!string.IsNullOrEmpty(Name))
-                    return Name;
-
-                return GetType().Name;
-            }
+            ((IOperation)observer).Observed.Add(this);
         }
+        _observers.Add(observer);
+        return new AnonymousDisposable(() => _observers.Remove(observer));
+    }
+    #endregion
 
-        /// <summary>
-        /// List of observers of this operation
-        /// </summary>
-        public List<IObserver<Row>> Observers => _observers;
+    /// <summary>
+    /// Trigger the operation. Trigger method calls are bubbled up through the pipeline
+    /// </summary>
+    public virtual void Trigger()
+    {
+    }
 
-        #region Observable
+    /// <summary>
+    /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+    /// </summary>
+    /// <filterpriority>2</filterpriority>
+    public void Dispose()
+    {     
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
 
-        /// <summary>
-        /// Subscribes an observer to the observable sequence.
-        /// </summary>
-        public virtual IDisposable Subscribe(IObserver<Row> observer)
+    protected virtual void Dispose(bool disposing)
+    {
+        if (isDisposed)
         {
-            if (observer is IOperation)
-            {
-                ((IOperation)observer).Observed.Add(this);
-            }
-            _observers.Add(observer);
-            return new AnonymousDisposable(() => _observers.Remove(observer));
+            return;
         }
-        #endregion
-
-        /// <summary>
-        /// Trigger the operation. Trigger method calls are bubbled up through the pipeline
-        /// </summary>
-        public virtual void Trigger()
-        {
-        }
-
-        /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        /// <filterpriority>2</filterpriority>
-        public virtual void Dispose()
-        {            
-        }
+        
+        isDisposed = true;
     }
 }

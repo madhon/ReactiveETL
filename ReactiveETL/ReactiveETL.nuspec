@@ -10,7 +10,7 @@
         <description>Reactive ETL is a rewrite of Rhino ETL using the reactive extensions for .Net.</description>
         <tags>Rx Reactive</tags>
         <dependencies>
-            <dependency id="FileHelpers" version="3.2.7" />
+            <dependency id="FileHelpers" version="3.5.2" />
         </dependencies>
     </metadata>
     <files>

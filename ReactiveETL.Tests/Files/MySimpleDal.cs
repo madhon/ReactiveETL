@@ -1,23 +1,22 @@
-namespace ReactiveETL.Tests.Files
+namespace ReactiveETL.Tests.Files;
+
+using System.Collections.Generic;
+
+public class MySimpleDal
 {
-    using System.Collections.Generic;
+    public static List<User> Users = new List<User>();
 
-    public class MySimpleDal
+    public static void Save(User user)
     {
-        public static List<User> Users = new List<User>();
+        Users.Add(user);
+    }
 
-        public static void Save(User user)
-        {
-            Users.Add(user);
-        }
-
-        public static IEnumerable<User> GetUsers()
-        {
-            yield return new User(1, "ayende", "ayende@example.org");
-            yield return new User(2, "foo", "foo@example.org");
-            yield return new User(3, "bar", "bar@example.org");
-            yield return new User(4, "brak", "brak@example.org");
-            yield return new User(5, "snar", "snar@example.org");
-        }
+    public static IEnumerable<User> GetUsers()
+    {
+        yield return new User(1, "ayende", "ayende@example.org");
+        yield return new User(2, "foo", "foo@example.org");
+        yield return new User(3, "bar", "bar@example.org");
+        yield return new User(4, "brak", "brak@example.org");
+        yield return new User(5, "snar", "snar@example.org");
     }
 }

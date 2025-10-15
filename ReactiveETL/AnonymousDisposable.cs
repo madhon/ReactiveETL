@@ -1,13 +1,12 @@
-﻿namespace ReactiveETL
+﻿namespace ReactiveETL;
+
+using System;
+
+internal sealed class AnonymousDisposable : IDisposable
 {
-    using System;
+    readonly Action dispose;
 
-    internal sealed class AnonymousDisposable : IDisposable
-    {
-        readonly Action dispose;
+    public AnonymousDisposable(Action dispose) => this.dispose = dispose;
 
-        public AnonymousDisposable(Action dispose) => this.dispose = dispose;
-
-        public void Dispose() => dispose();
-    } 
+    public void Dispose() => dispose();
 }

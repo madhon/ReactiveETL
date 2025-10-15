@@ -2,8 +2,6 @@
 {
     using System.IO;
     using FileHelpers;
-    using Shouldly;
-    using Xunit;
 
     /// <summary>
     /// Summary description for FileTest

@@ -12,6 +12,10 @@
 	<UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
   </PropertyGroup>
 
+	<PropertyGroup>
+		<NoWarn>$(NoWarn);CA1812</NoWarn>
+	</PropertyGroup>
+	
   <ItemGroup>
 	<None Remove="Files\FileReadTest.txt" />
 	<None Update="App.config">
@@ -37,7 +41,7 @@
 	<PackageReference Include="System.Security.Cryptography.Xml" />
 	<PackageReference Include="System.Security.Cryptography.Pkcs" />
 	<PackageReference Include="System.Text.RegularExpressions"  />
-	<PackageReference Include="xunit.v3.core"  />
+	<PackageReference Include="xunit.v3.core.mtp-v2"  />
 	<PackageReference Include="xunit.runner.visualstudio" >
 	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	  <PrivateAssets>all</PrivateAssets>

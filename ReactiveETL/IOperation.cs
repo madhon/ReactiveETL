@@ -1,7 +1,7 @@
 namespace ReactiveETL;
 
 using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 /// <summary>
 /// Service contract for operations
@@ -11,5 +11,5 @@ public interface IOperation : IObservableOperation, IObserver<Row>
     /// <summary>
     /// List of operation observed by this operation
     /// </summary>
-    List<IObservableOperation> Observed { get; }
+    Collection<IObservableOperation> Observed { get; }
 }

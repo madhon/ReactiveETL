@@ -5,20 +5,22 @@ using System.Linq;
 
 namespace ReactiveETL
 {
+    using System.Collections.ObjectModel;
+
     /// <summary>
     /// Base class for operations
     /// </summary>
     [DebuggerDisplay("{DisplayName}")]
     public abstract class AbstractOperation : AbstractObservableOperation, IOperation
     {
-        private List<IObservableOperation> _observed = new List<IObservableOperation>();
+        private Collection<IObservableOperation> _observed = new Collection<IObservableOperation>();
 
 
 
         /// <summary>
         /// List of operation observed by this operation
         /// </summary>
-        public List<IObservableOperation> Observed => _observed;
+        public Collection<IObservableOperation> Observed => _observed;
 
 
         /// <summary>

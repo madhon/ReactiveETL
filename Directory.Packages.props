@@ -2,29 +2,29 @@
   <ItemGroup>
     <PackageVersion Include="Azure.Core" Version="1.50.0" />
     <PackageVersion Include="Azure.Identity" Version="1.17.1" />
-    <PackageVersion Include="Microsoft.Identity.Client.Extensions.Msal" Version="4.82.1" />
-    <PackageVersion Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.16.0" />
-    <PackageVersion Include="System.Configuration.ConfigurationManager" Version="9.0.13" />
+    <PackageVersion Include="Microsoft.Identity.Client.Extensions.Msal" Version="4.83.3" />
+    <PackageVersion Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.17.0" />
+    <PackageVersion Include="System.Configuration.ConfigurationManager" Version="9.0.14" />
     <PackageVersion Include="System.Data.SqlClient" Version="4.9.1" />
     <PackageVersion Include="System.Net.Http" Version="4.3.4" />
-    <PackageVersion Include="System.Security.Cryptography.Xml" Version="9.0.13" />
-    <PackageVersion Include="System.Security.Cryptography.Pkcs" Version="9.0.13" />
-    <PackageVersion Include="System.Formats.asn1" Version="9.0.13" />
+    <PackageVersion Include="System.Security.Cryptography.Xml" Version="9.0.14" />
+    <PackageVersion Include="System.Security.Cryptography.Pkcs" Version="9.0.14" />
+    <PackageVersion Include="System.Formats.asn1" Version="9.0.14" />
     <PackageVersion Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="6.1.4" />
-    <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.13" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.13" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.14" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.14" />
     <PackageVersion Include="Microsoft.Extensions.Telemetry.Abstractions" Version="9.10.0" />
-    <PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.1.0" />
-    <PackageVersion Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.4.1" />
-    <PackageVersion Include="Microsoft.Testing.Extensions.TrxReport" Version="2.1.0" />      
+    <PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.2.1" />
+    <PackageVersion Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.6.2" />
+    <PackageVersion Include="Microsoft.Testing.Extensions.TrxReport" Version="2.2.1" />
     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.201" PrivateAssets="All" />
     <PackageVersion Include="FileHelpers" Version="3.5.2" />
-    <PackageVersion Include="MongoDB.Driver" Version="3.6.0" />
-    <PackageVersion Include="SharpCompress" Version="0.46.2" />
+    <PackageVersion Include="MongoDB.Driver" Version="3.7.1" />
+    <PackageVersion Include="SharpCompress" Version="0.47.4" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.4.0" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="xunit.v3.core.mtp-v2" Version="3.2.2" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />

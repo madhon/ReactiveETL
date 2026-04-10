@@ -182,16 +182,16 @@ public class QuackingDictionary : IDictionary
     public override string ToString()
     {
         var sb = new StringBuilder();
-        sb.Append("{");
+        sb.Append('{');
         foreach (DictionaryEntry item in items)
         {
             sb.Append(item.Key)
                 .Append(" : ");
             if (item.Value is string)
             {
-                sb.Append("\"")
+                sb.Append('\"')
                     .Append(item.Value)
-                    .Append("\"");
+                    .Append('\"');
             }
             else
             {
@@ -200,7 +200,7 @@ public class QuackingDictionary : IDictionary
             sb.Append(", ");
 
         }
-        sb.Append("}");
+        sb.Append('}');
         return sb.ToString();
     }
 

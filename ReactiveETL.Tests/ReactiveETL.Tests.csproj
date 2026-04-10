@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-	<TargetFramework>net9.0</TargetFramework>
+	<TargetFramework>net10.0</TargetFramework>
 	<OutputType>Exe</OutputType>
 	<Company>Madhon</Company>
 	<Copyright>Copyright © Madhon 2016-2020</Copyright>
@@ -37,10 +37,8 @@
 	<PackageReference Include="Newtonsoft.Json" />
 	<PackageReference Include="Shouldly"/>
 	<PackageReference Include="System.Data.SqlClient" />
-	<PackageReference Include="System.Net.Http" />
 	<PackageReference Include="System.Security.Cryptography.Xml" />
 	<PackageReference Include="System.Security.Cryptography.Pkcs" />
-	<PackageReference Include="System.Text.RegularExpressions"  />
 	<PackageReference Include="xunit.v3.core.mtp-v2"  />
 	<PackageReference Include="xunit.runner.visualstudio" >
 	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

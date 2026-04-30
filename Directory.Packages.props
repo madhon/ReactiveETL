@@ -11,7 +11,7 @@
     <PackageVersion Include="System.Security.Cryptography.Pkcs" Version="9.0.14" />
     <PackageVersion Include="System.Formats.asn1" Version="9.0.14" />
     <PackageVersion Include="System.Text.RegularExpressions" Version="4.3.1" />
-    <PackageVersion Include="Microsoft.Data.SqlClient" Version="6.1.4" />
+    <PackageVersion Include="Microsoft.Data.SqlClient" Version="7.0.1" />
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.14" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.14" />
     <PackageVersion Include="Microsoft.Extensions.Telemetry.Abstractions" Version="9.10.0" />

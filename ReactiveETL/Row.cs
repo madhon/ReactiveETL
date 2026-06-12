@@ -154,7 +154,7 @@ public class Row : QuackingDictionary, IEquatable<Row>
         var row = new Row();
         foreach (PropertyInfo property in GetProperties(obj))
         {
-            row[property.Name] = property.GetValue(obj, new object[0]);
+            row[property.Name] = property.GetValue(obj, Array.Empty<object>());
         }
         foreach (FieldInfo field in GetFields(obj))
         {

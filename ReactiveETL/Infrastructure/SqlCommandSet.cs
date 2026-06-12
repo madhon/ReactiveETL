@@ -42,7 +42,7 @@ namespace ReactiveETL.Infrastructure
 	/// 
 	/// Observable performance benefits are 50%+ when used, so it is really worth it.
 	/// </summary>
-	public class SqlCommandSet : IDisposable
+	public sealed class SqlCommandSet : IDisposable
 	{
 		private static readonly Type sqlCmdSetType;
 		private readonly object instance;
@@ -53,7 +53,7 @@ namespace ReactiveETL.Infrastructure
 		private readonly AppendCommand doAppend;
 		private readonly ExecuteNonQueryCommand doExecuteNonQuery;
 		private readonly DisposeCommand doDispose;
-		private int countOfCommands = 0;
+		private int countOfCommands;
 
 		static SqlCommandSet()
 		{

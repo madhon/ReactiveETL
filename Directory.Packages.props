@@ -12,7 +12,7 @@
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.17" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.17" />
     <PackageVersion Include="Microsoft.Extensions.Telemetry.Abstractions" Version="9.10.0" />
-    <PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.2.3" />
+    <PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.3.1" />
     <PackageVersion Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.8.0" />
     <PackageVersion Include="Microsoft.Testing.Extensions.TrxReport" Version="2.2.3" />
     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />

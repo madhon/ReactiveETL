@@ -5,7 +5,7 @@ namespace ReactiveETL.Operations
     /// <summary>
     /// Operation to filter data in the pipeline
     /// </summary>
-    public class FilterOperation : AbstractOperation
+    public sealed class FilterOperation : AbstractOperation
     {
         private Predicate<Row> _predicate;
 

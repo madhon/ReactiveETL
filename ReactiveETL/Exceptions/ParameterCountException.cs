@@ -5,7 +5,7 @@ namespace ReactiveETL.Exceptions;
 /// parameter
 /// </summary>
 [global::System.Serializable]
-public class ParameterCountException : System.Exception
+public sealed class ParameterCountException : System.Exception
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ParameterCountException"/> class.

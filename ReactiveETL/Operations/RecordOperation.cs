@@ -6,7 +6,7 @@ namespace ReactiveETL.Operations
     /// <summary>
     /// Operation that record values in a list while continuing the pipeline
     /// </summary>
-    public class RecordOperation : StartOperation
+    public sealed class RecordOperation : StartOperation
     {
         /// <summary>
         /// Constructor of the operation

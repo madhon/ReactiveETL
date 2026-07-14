@@ -7,7 +7,7 @@ using System.Text;
 /// <summary>
 /// Result of ETL operation error
 /// </summary>
-public class EtlResultException : ReactiveETLException
+public sealed class EtlResultException : ReactiveETLException
 {
     /// <summary>
     /// Operation Result

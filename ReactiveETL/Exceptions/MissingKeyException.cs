@@ -5,7 +5,7 @@ namespace ReactiveETL.Exceptions;
 /// the quacking dictionary is set to throw
 /// </summary>
 [global::System.Serializable]
-public class MissingKeyException : System.Exception
+public sealed class MissingKeyException : System.Exception
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="MissingKeyException"/> class.

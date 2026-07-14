@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net472;net9.0;net10.0</TargetFrameworks>
+    <TargetFrameworks>net472;net10.0</TargetFrameworks>
     <LangVersion>13.0</LangVersion>
     <Company>Madhon</Company>
     <Copyright>Copyright © Madhon 2016-2022</Copyright>

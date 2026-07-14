@@ -8,7 +8,7 @@ namespace ReactiveETL.Operations
     /// <summary>
     /// Output count to console
     /// </summary>
-    public class ConsoleCountOperation : AbstractOperation
+    public sealed class ConsoleCountOperation : AbstractOperation
     {
         private ulong _count;
 

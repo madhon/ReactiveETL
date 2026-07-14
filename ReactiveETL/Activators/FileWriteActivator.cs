@@ -9,7 +9,7 @@ using ReactiveETL.Files;
 /// Activator for file writing
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public class FileWriteActivator<T>
+public sealed class FileWriteActivator<T>
 {
     /// <summary>
     /// Text writer to the file

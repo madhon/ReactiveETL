@@ -3,7 +3,7 @@
 /// <summary>
 /// Helper methods for join operation on rows
 /// </summary>
-public class RowJoinHelper
+public sealed class RowJoinHelper
 {
     private string _leftfieldName;
     private string _rightfieldName;

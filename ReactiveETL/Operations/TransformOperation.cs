@@ -6,7 +6,7 @@ namespace ReactiveETL.Operations
     /// <summary>
     /// Operation for transforming the current <see cref="Row"/>
     /// </summary>
-    public class TransformOperation : AbstractOperation
+    public sealed class TransformOperation : AbstractOperation
     {
         private Func<Row, Row> _transformact;
         private Func<Row, IEnumerable<Row>> _transformManyAct;

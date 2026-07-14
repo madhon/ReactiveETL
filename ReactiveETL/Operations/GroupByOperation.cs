@@ -8,7 +8,7 @@ namespace ReactiveETL.Operations
     /// <summary>
     /// Operation to group values
     /// </summary>
-    public class GroupByOperation : AbstractOperation
+    public sealed class GroupByOperation : AbstractOperation
     {
         private readonly string[] _columns;
         private readonly Action<Row, Row> _aggregate;

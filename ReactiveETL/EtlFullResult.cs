@@ -5,7 +5,7 @@ using System.Collections.Generic;
 /// <summary>
 /// Result of a pipeline
 /// </summary>
-public class EtlFullResult : EtlResult, IEnumerable<Row>
+public sealed class EtlFullResult : EtlResult, IEnumerable<Row>
 {
     internal EtlFullResult()
     {

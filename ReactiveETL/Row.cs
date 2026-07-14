@@ -15,7 +15,7 @@ using System.Reflection;
 [DebuggerDisplay("Count = {items.Count}")]
 [DebuggerTypeProxy(typeof(QuackingDictionaryDebugView))]
 [Serializable]
-public class Row : QuackingDictionary, IEquatable<Row>
+public sealed class Row : QuackingDictionary, IEquatable<Row>
 {
     static readonly Dictionary<Type, List<PropertyInfo>> propertiesCache = new Dictionary<Type, List<PropertyInfo>>();
     static readonly Dictionary<Type, List<FieldInfo>> fieldsCache = new Dictionary<Type, List<FieldInfo>>();
@@ -32,7 +32,7 @@ public class Row : QuackingDictionary, IEquatable<Row>
     /// Initializes a new instance of the <see cref="Row"/> class.
     /// </summary>
     /// <param name="itemsToClone">The items to clone.</param>
-    protected Row(IDictionary itemsToClone)
+    public Row(IDictionary itemsToClone)
         : base(new Hashtable(itemsToClone, StringComparer.InvariantCultureIgnoreCase))
     {
     }

@@ -5,7 +5,7 @@ namespace ReactiveETL.Operations
     /// <summary>
     /// Operation to dispatch grouped elements
     /// </summary>
-    public class DispatchGroupOperation : AbstractOperation
+    public sealed class DispatchGroupOperation : AbstractOperation
     {
         /// <summary>
         /// Method called by OnNext to dispatch the new value to the observers of the operation

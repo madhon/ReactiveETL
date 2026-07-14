@@ -6,7 +6,7 @@ namespace ReactiveETL.Operations
     /// <summary>
     /// Operation used to create an operation from an enumeration
     /// </summary>
-    public class InputEnumerableOperation<T> : AbstractObservableOperation where T : class
+    public sealed class InputEnumerableOperation<T> : AbstractObservableOperation where T : class
     {
         private IEnumerable<T> _enumeration;
 

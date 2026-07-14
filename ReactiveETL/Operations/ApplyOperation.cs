@@ -8,7 +8,7 @@ namespace ReactiveETL.Operations
     /// <summary>
     /// Operation to apply an action from the rows
     /// </summary>
-    public class ApplyOperation : AbstractOperation
+    public sealed class ApplyOperation : AbstractOperation
     {
         private Action<Row> _rowAction;
 

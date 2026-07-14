@@ -8,7 +8,7 @@ namespace ReactiveETL.Operations
     /// Operation for joining data in the pipeline
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class JoinOperation<T> : AbstractOperation
+    public sealed class JoinOperation<T> : AbstractOperation
     {
         private Dictionary<T, object> matchedRightElt = new Dictionary<T, object>();
         private JoinActivator<T> _activator;

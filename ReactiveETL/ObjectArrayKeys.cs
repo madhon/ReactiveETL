@@ -4,7 +4,7 @@ namespace ReactiveETL;
 /// This is a utility clss that allows to treat a set of values as key, so it can be put
 /// into hash tables and retrieved easily.
 /// </summary>
-public class ObjectArrayKeys
+public sealed class ObjectArrayKeys
 {
     private readonly object[] columnValues;
 

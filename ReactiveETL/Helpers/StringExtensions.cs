@@ -51,7 +51,7 @@ public static partial class StringExtensions
     public static string LimitSizeTo(this object obj, int size)
     {
         var txt = obj as string;
-        if (txt != null && txt.Length > size) txt = txt.Substring(0, size - 1);
+        if (txt != null && txt.Length > size) txt = txt.AsSpan(0, size - 1).ToString();
 
         return txt;
     }

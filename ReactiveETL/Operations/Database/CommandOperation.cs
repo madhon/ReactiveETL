@@ -9,7 +9,7 @@ namespace ReactiveETL.Operations.Database
     /// <summary>
     /// Operation that apply a database command. If this operation is a starting point (it does not observe anything), calling the process method will execute the command and start the pipeline.
     /// </summary>
-    public partial class CommandOperation : AbstractOperation
+    public sealed partial class CommandOperation : AbstractOperation
     {
         private readonly ILogger log;
 

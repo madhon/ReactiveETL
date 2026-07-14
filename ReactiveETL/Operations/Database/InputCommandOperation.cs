@@ -10,7 +10,7 @@ namespace ReactiveETL.Operations.Database
     /// <summary>
     /// Observable list of elements
     /// </summary>
-    public partial class InputCommandOperation : AbstractObservableOperation
+    public sealed partial class InputCommandOperation : AbstractObservableOperation
     {
         private readonly ILogger log;
 

@@ -6,6 +6,8 @@ using System.Xml.Serialization;
 
 namespace ReactiveETL.Tests
 {
+    using System.Xml;
+
     /// <summary>
     /// Accès à un fichier de ressource
     /// </summary>
@@ -22,9 +24,16 @@ namespace ReactiveETL.Tests
             T res = default(T);
             string content = Helper.LoadFromRessourceFile(ressourceFileName);
             var serializer = new XmlSerializer(typeof(T));
-            using (var reader = new StringReader(content))
+            var settings = new XmlReaderSettings
             {
-                res = (T)serializer.Deserialize(reader);
+                DtdProcessing = DtdProcessing.Prohibit,
+                XmlResolver = null
+            };
+
+            using (var stringReader = new StringReader(content))
+            using (var xmlReader = XmlReader.Create(stringReader, settings))
+            {
+                res = (T)serializer.Deserialize(xmlReader);
             }
 
             return res;

@@ -1,5 +1,6 @@
 ﻿namespace ReactiveETL.Tests;
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -40,7 +41,7 @@ public class ErrorsFixture
             ex.EtlResult.CountExceptions.ShouldBe(1);
             var exc = ex.EtlResult.Exceptions.FirstOrDefault();
 
-            exc.ShouldBeAssignableTo<InvalidDataException>();
+            exc.ShouldBeAssignableTo<System.IO.InvalidDataException>();
         }                       
     }
 }

@@ -29,6 +29,6 @@
     <PackageVersion Include="System.Threading.Channels" Version="10.0.14" />
     <PackageVersion Include="xunit.v3.core.mtp-v2" Version="4.0.2" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="4.0.1" />
-    <PackageVersion Include="xunit.analyzers" Version="2.2.0" />
+    <PackageVersion Include="xunit.analyzers" Version="2.3.0" />
   </ItemGroup>
 </Project>

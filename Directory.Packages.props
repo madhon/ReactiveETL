@@ -13,7 +13,7 @@
     <PackageVersion Include="Microsoft.Bcl.Cryptography" Version="10.0.15" />
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="8.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="10.0.15" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.15" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="11.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Telemetry.Abstractions" Version="10.11.1" />
     <PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.5.3" />
     <PackageVersion Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.12.0" />

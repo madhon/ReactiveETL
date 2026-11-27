@@ -27,7 +27,7 @@
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.12.0" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
-    <PackageVersion Include="System.Threading.Channels" Version="10.0.15" />
+    <PackageVersion Include="System.Threading.Channels" Version="11.0.0" />
     <PackageVersion Include="xunit.v3.core.mtp-v2" Version="4.0.3" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="4.0.1" />
     <PackageVersion Include="xunit.analyzers" Version="2.3.0" />
